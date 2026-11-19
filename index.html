@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Sapiens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Sinhala:wght@600;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: confident studio, calm and premium, like a product launch page
+   IDEA: a new star being born; the nova mark grows and turns, the work floats around it
+   PICTURE: original artwork for every project (posts, reels, posters, documents) in floating cards and phones
+   COLOUR and TYPE: Midnight #0B1020, Paper #F5F3EE, Nova Gold #F2B33D; Space Grotesk + Inter
+   LAYOUT: floating pill nav, pinned hero, marquee, orbit services, pinned case reel, filterable gallery, case study pages on #hash */
+:root{color-scheme:dark;--mid:#0B1020;--mid2:#141B30;--line:#26304D;--paper:#F5F3EE;--sand:#EBE7DD;--gold:#F2B33D;--ink:#0B1020;--mute:#C9CEDB;--mute2:#A9B0C3;--slate:#4A5063;--brown:#5A4300;--ease:cubic-bezier(.2,.8,.2,1)}
+:root[data-theme=light],:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:96px}
+body{margin:0;background:var(--mid);color:var(--paper);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;margin:0;text-wrap:balance}
+p{margin:0}a{color:inherit}
+.sg{font-family:'Space Grotesk',sans-serif;font-weight:700}.in{font-family:Inter,sans-serif;font-weight:600}.si{font-family:'Noto Sans Sinhala',sans-serif;font-weight:800}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(4vw,20px)}
+.eyebrow{font-size:14px;font-weight:600;color:var(--gold);letter-spacing:.04em}
+.h2{font-size:clamp(2.2rem,5vw,4rem);line-height:1.04;letter-spacing:-.03em}
+.lede{font-size:clamp(1.05rem,1.5vw,1.25rem);color:var(--mute);max-width:56ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 26px;border-radius:999px;font-weight:600;text-decoration:none;font-size:16px;border:0;cursor:pointer;font-family:inherit;transition:transform .3s var(--ease),background .3s}
+.btn:hover{transform:translateY(-2px) scale(1.02)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-ghost{border:1.5px solid #4A5578;color:var(--paper);background:transparent}
+.btn-ink{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.sample{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;background:#FFF3D6;color:#5A4300;border-radius:999px;padding:5px 12px;white-space:nowrap}
+.art svg{display:block;width:100%;height:100%}
+
+/* floating nav */
+.nav{position:fixed;top:16px;left:50%;z-index:60;translate:-50% 0;width:min(940px,calc(100% - 24px));transition:transform .5s var(--ease),opacity .4s}
+.nav.hide{transform:translateY(-130%);opacity:0}
+.navbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 20px;border-radius:999px;background:rgba(20,27,48,.62);backdrop-filter:saturate(180%) blur(22px);-webkit-backdrop-filter:saturate(180%) blur(22px);border:1px solid rgba(255,255,255,.1);box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Space Grotesk';font-weight:700;letter-spacing:.04em;font-size:16px;white-space:nowrap}
+.links{display:flex;align-items:center;gap:2px}
+.links a{color:var(--mute);text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;transition:background .25s,color .25s}
+.links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.links a.on{color:var(--ink);background:var(--paper)}
+.navcta{min-height:42px;padding:0 18px;font-size:14px}
+.menubtn{display:none;width:44px;height:44px;border-radius:999px;border:0;background:rgba(255,255,255,.08);color:#fff;cursor:pointer}
+.drawer{display:none;margin-top:8px;padding:10px;border-radius:24px;background:rgba(20,27,48,.92);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.1)}
+.drawer a{display:block;padding:14px 16px;border-radius:14px;text-decoration:none;font-size:17px}
+.drawer a:hover{background:rgba(255,255,255,.06)}
+@media(max-width:860px){.links,.navcta{display:none}.menubtn{display:inline-flex;align-items:center;justify-content:center}.nav.open .drawer{display:block}}
+
+/* hero */
+.hero{height:190vh;position:relative}
+.hero .pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+.star-bg{position:absolute;left:30%;top:50%;width:min(110vw,1000px);aspect-ratio:1;translate:-50% -50%;opacity:.1;will-change:transform}
+.hero .inner{position:relative;z-index:2;display:flex;flex-direction:column;gap:26px;will-change:transform,opacity;width:100%}
+.hero h1{font-size:clamp(3rem,7.6vw,7rem);line-height:.98;letter-spacing:-.04em;max-width:11ch}
+.hero h1 span{display:inline-block;opacity:0;transform:translateY(40px);animation:rise 1s var(--ease) forwards}
+.hero .lede{max-width:46ch}
+.fade{opacity:0;animation:fadeup 1s .7s var(--ease) forwards}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.collage{position:absolute;inset:0;z-index:1;pointer-events:none}
+.fl{position:absolute;border-radius:22px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.8);opacity:0;animation:pop 1.2s var(--ease) forwards;will-change:transform}
+.fl .art{width:100%;height:100%}
+.cue{position:absolute;bottom:26px;left:50%;translate:-50% 0;z-index:2;font-size:13px;color:var(--mute2);display:flex;flex-direction:column;align-items:center;gap:8px}
+.cue i{width:1.5px;height:36px;background:linear-gradient(var(--gold),transparent);animation:drip 1.8s infinite}
+@media(max-width:1200px){.fl.c2,.fl.c4{display:none}}
+@media(max-width:900px){.collage{opacity:.3}.fl.c3{display:none}}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes fadeup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;scale:.85}to{opacity:1;scale:1}}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* marquee */
+.marq{border-block:1px solid #1C2440;overflow:hidden;padding:26px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.mtrack{display:flex;width:max-content;gap:48px;animation:slide 38s linear infinite}
+.mtrack span{display:flex;align-items:center;gap:48px;font:500 clamp(1.4rem,2.6vw,2.2rem)/1 'Space Grotesk';color:#8D96B0;white-space:nowrap}
+.mtrack svg{width:22px;height:22px;flex:none}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:80px}
+.stats div{background:var(--mid);padding:28px}
+.stats b{display:block;font:700 clamp(2.4rem,4vw,3.4rem)/1 'Space Grotesk';color:var(--gold)}
+.stats span{color:var(--mute);font-size:15px}
+
+.statement{padding:clamp(100px,14vw,180px) 0}
+.statement p{font:700 clamp(1.9rem,4.4vw,3.8rem)/1.15 'Space Grotesk';letter-spacing:-.025em;max-width:22ch}
+.statement .w{opacity:.16;transition:opacity .15s linear}.statement .w.g{color:var(--gold)}
+
+/* services */
+.services{position:relative;overflow:hidden;padding:clamp(80px,10vw,140px) 0;border-top:1px solid #1C2440}
+.rings{position:absolute;right:-260px;top:-200px;width:820px;height:820px;will-change:transform}
+.shead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px;position:relative}
+.cards{display:flex;flex-wrap:wrap;gap:16px;position:relative}
+.card{flex:1 1 340px;border-radius:28px;padding:36px;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;background:var(--mid2);border:1px solid var(--line);transition:transform .5s var(--ease),box-shadow .5s}
+.card:hover{box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.card .n{font-weight:600;font-size:14px;color:var(--gold)}
+.card h3{font-size:clamp(1.6rem,2.4vw,2rem);line-height:1.1;margin-bottom:10px}
+.card .d{color:var(--mute)}.card .t{font-size:14px;color:var(--mute2);margin-top:12px;line-height:1.7}
+.card.gold{background:var(--gold);color:var(--ink);border-color:var(--gold)}.card.gold .n,.card.gold .d{color:var(--ink)}.card.gold .t{color:#2A2410}
+.card.light{background:var(--paper);color:var(--ink);border-color:var(--paper)}.card.light .n{color:var(--ink)}.card.light .d{color:#2A3045}.card.light .t{color:var(--slate)}
+
+.rv{opacity:0;transform:translateY(48px) scale(.98);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* featured work: pinned horizontal */
+.work{background:var(--sand);color:var(--ink)}
+.work .eyebrow,.gallery .eyebrow,.process .eyebrow,.about .eyebrow{color:var(--brown)}
+.work .intro{padding:clamp(80px,10vw,140px) 0 32px}
+.hwrap{position:relative}
+.hpin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+.htrack{display:flex;gap:24px;padding:0 max(4vw,20px);will-change:transform}
+.case{flex:0 0 min(1100px,88vw);height:min(620px,76vh);background:#fff;border-radius:32px;overflow:hidden;display:flex;box-shadow:0 30px 80px -40px rgba(11,16,32,.35)}
+.case .cv{flex:0 0 46%;position:relative;overflow:hidden}
+.case .cv .art{position:absolute;inset:0;transition:transform 1.2s var(--ease)}
+.case:hover .cv .art{transform:scale(1.05)}
+.case .cb{flex:1;padding:clamp(24px,3vw,44px);display:flex;flex-direction:column;gap:16px;justify-content:center}
+.case .k{font-size:14px;font-weight:600;color:var(--slate)}
+.case h3{font-size:clamp(2rem,3.4vw,3rem);line-height:1;letter-spacing:-.02em}
+.case ul{margin:0;padding-left:18px;color:#2A3045;line-height:1.75}
+.hprog{position:absolute;left:max(4vw,20px);right:max(4vw,20px);bottom:5vh;height:3px;background:#D9D4C7;border-radius:3px;overflow:hidden}
+.hprog i{display:block;height:100%;width:0;background:var(--ink)}
+.flat .hwrap{height:auto!important}.flat .hpin{position:static;height:auto;display:block;padding-bottom:40px}
+.flat .htrack{flex-direction:column;transform:none!important}
+.flat .case{flex:none;height:auto;flex-wrap:wrap;width:100%}.flat .case .cv{flex:1 1 320px;min-height:320px}.flat .case .cb{flex:1 1 340px}
+.flat .hprog{display:none}
+
+/* gallery */
+.gallery{background:var(--sand);color:var(--ink);padding:clamp(60px,8vw,120px) 0 clamp(80px,10vw,140px)}
+.ghead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:28px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:inherit;font-size:15px;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #CFC8B8;background:transparent;color:var(--ink);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.filters button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));grid-auto-flow:dense;gap:18px}
+.gi{position:relative;border-radius:24px;overflow:hidden;background:#fff;text-decoration:none;color:inherit;display:block;transition:opacity .4s,transform .4s var(--ease)}
+.gi.wide{grid-column:span 2}
+.gi .art{aspect-ratio:4/5;transition:transform 1s var(--ease)}
+.gi.wide .art{aspect-ratio:auto;height:100%;min-height:320px}
+.gi:hover .art{transform:scale(1.06)}
+.gi .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;padding:12px 16px;display:flex;justify-content:space-between;gap:10px;align-items:center;transform:translateY(8px);opacity:.96;transition:transform .4s var(--ease)}
+.gi:hover .cap{transform:none}
+.gi .cap b{font:700 16px/1.2 'Space Grotesk'}.gi .cap span{font-size:13px;color:var(--slate)}
+.gi.phonecell{background:#DCD5C4;display:flex;align-items:center;justify-content:center;padding:28px 0 84px}
+.gi.hide{display:none}
+@media(max-width:620px){.gi.wide{grid-column:span 1}}
+
+/* phone */
+.phone{position:relative;width:min(220px,62%);aspect-ratio:9/19;background:#0A0A0A;border-radius:38px;padding:9px;box-shadow:0 40px 70px -30px rgba(0,0,0,.6),inset 0 0 0 2px #2A2A2A}
+.phone::before{content:"";position:absolute;top:16px;left:50%;translate:-50% 0;width:64px;height:18px;border-radius:999px;background:#000;z-index:2}
+.phone .scr{height:100%;border-radius:30px;overflow:hidden;background:#000}
+.phone .art,.gi .phone .art{height:100%;aspect-ratio:auto}
+
+/* process */
+.process{background:var(--paper);color:var(--ink);padding:clamp(80px,10vw,140px) 0}
+.steps{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:32px;margin-top:56px;padding-top:36px}
+.pline{position:absolute;top:0;left:0;right:0;height:3px;background:#D9D4C7;border-radius:3px}
+.pline i{display:block;height:100%;width:0;background:var(--ink);border-radius:3px}
+.step b{font:700 44px/1 'Space Grotesk'}.step h3{font-size:22px;margin:12px 0 8px}.step p{color:var(--slate)}
+
+/* testimonials */
+.quotes{background:var(--mid);padding:clamp(80px,10vw,140px) 0;overflow:hidden}
+.qtrack{display:flex;gap:18px;width:max-content;animation:slide 60s linear infinite;padding:8px 0}
+.quotes:hover .qtrack{animation-play-state:paused}
+.q{width:min(420px,80vw);background:var(--mid2);border:1px solid var(--line);border-radius:26px;padding:30px;display:flex;flex-direction:column;gap:20px}
+.q p{font:500 20px/1.45 'Space Grotesk'}
+.q .who{display:flex;align-items:center;gap:12px;color:var(--mute);font-size:14px}
+.q .av{width:44px;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;font:700 16px 'Space Grotesk';color:#fff;flex:none}
+
+/* about */
+.about{background:var(--paper);color:var(--ink);padding:clamp(80px,10vw,140px) 0}
+.about .cols{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.about .l{flex:1 1 420px;display:flex;flex-direction:column;gap:20px}
+.about .l p.lede{color:#2A3045}
+.vals{flex:1 1 440px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.val{background:#fff;border:1px solid #E2DED3;border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.val svg{width:30px;height:30px}
+.val h3{font-size:20px}.val p{color:var(--slate);font-size:15px}
+@media(max-width:520px){.vals{grid-template-columns:minmax(0,1fr)}}
+
+.why{background:var(--paper);padding:0 0 clamp(80px,10vw,140px)}
+.whybox{background:var(--gold);color:var(--ink);border-radius:36px;padding:clamp(32px,6vw,80px);display:flex;flex-wrap:wrap;gap:40px;align-items:center;will-change:transform}
+.whybox h2{flex:1 1 420px;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.08;letter-spacing:-.02em}
+.whybox ul{flex:1 1 320px;margin:0;padding-left:20px;font-size:17px;line-height:1.9}
+
+/* contact */
+.contact{padding:clamp(80px,10vw,140px) 0}
+.contact .wrap{display:flex;flex-wrap:wrap;gap:56px}
+.contact .l{flex:1 1 380px;display:flex;flex-direction:column;gap:20px}
+.info{display:flex;flex-direction:column;gap:6px;color:var(--mute);font-size:17px}
+form{flex:1 1 480px;background:var(--mid2);border:1px solid var(--line);border-radius:28px;padding:32px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.f{display:flex;flex-direction:column;gap:8px}.f.full{grid-column:1/-1}
+label{font-size:14px;color:var(--mute)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--paper);background:var(--mid);border:1px solid #3A4566;border-radius:14px;padding:14px;min-height:50px;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);outline:none}
+form button{grid-column:1/-1}
+.ok{grid-column:1/-1;color:var(--mute);font-size:15px;min-height:1.5em}
+@media(max-width:560px){form{grid-template-columns:minmax(0,1fr)}}
+footer{background:#070A15;color:var(--mute2);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-block:32px}
+footer nav{display:flex;gap:20px;flex-wrap:wrap}
+
+/* case study page */
+.cs{position:fixed;inset:0;z-index:80;background:var(--paper);color:var(--ink);overflow-y:auto;overscroll-behavior:contain;opacity:0;transform:translateY(40px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.cs.open{opacity:1;transform:none}
+.csbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px max(4vw,20px);background:rgba(245,243,238,.8);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid #E2DED3}
+.csbar .crumb{font-size:14px;color:var(--slate)}
+.close{width:46px;height:46px;border-radius:999px;border:0;background:var(--ink);color:var(--paper);cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none}
+.cscover{position:relative;height:min(78vh,720px);overflow:hidden}
+.cscover .art{position:absolute;inset:0;animation:zoomout 1.6s var(--ease) forwards}
+.cscover .ttl{position:absolute;left:0;right:0;bottom:0;padding:clamp(24px,4vw,56px) max(4vw,20px);background:linear-gradient(transparent,rgba(0,0,0,.72));color:#fff}
+.cscover h1{font-size:clamp(2.6rem,7vw,6rem);line-height:.95;letter-spacing:-.04em;animation:fadeup 1s .2s var(--ease) both}
+.cscover p{margin-top:14px;font-size:clamp(1rem,1.6vw,1.25rem);opacity:.9;animation:fadeup 1s .35s var(--ease) both}
+@keyframes zoomout{from{transform:scale(1.15)}to{transform:none}}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:#E2DED3;border-bottom:1px solid #E2DED3}
+.meta div{background:var(--paper);padding:22px max(2vw,20px)}
+.meta small{display:block;font-size:13px;color:var(--slate);margin-bottom:4px}
+.meta b{font-weight:600}
+.csec{padding:clamp(56px,8vw,110px) 0}
+.csec+.csec{padding-top:0}
+.two{display:flex;flex-wrap:wrap;gap:40px}
+.two>h2{flex:1 1 280px;font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1.05;letter-spacing:-.02em}
+.two>div{flex:2 1 460px;display:flex;flex-direction:column;gap:16px;font-size:18px;color:#2A3045;max-width:68ch}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px;margin-top:40px}
+.pillar{background:#fff;border:1px solid #E2DED3;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.pillar b{font:700 14px Inter;color:var(--brown)}.pillar h3{font-size:24px}.pillar p{color:var(--slate)}
+.shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px max(4vw,20px) 24px;scrollbar-width:thin}
+.shot{flex:0 0 auto;scroll-snap-align:start;display:flex;flex-direction:column;gap:12px}
+.shot .frame{height:min(480px,62vh);border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 24px 50px -30px rgba(11,16,32,.4)}
+.shot .frame .art{height:100%}
+.shot.post .frame{aspect-ratio:4/5}.shot.wide .frame{aspect-ratio:16/10}
+.shot.reel .frame{aspect-ratio:auto;background:#DCD5C4;display:flex;align-items:center;justify-content:center;padding:0 40px;width:auto}
+.shot.reel .phone{width:auto;height:92%}
+.shot figcaption{font-size:15px;color:var(--slate);max-width:44ch}
+.results{background:var(--mid);color:var(--paper);border-radius:36px;padding:clamp(32px,5vw,64px)}
+.results .rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:28px;margin-top:32px}
+.results b{display:block;font:700 clamp(2.4rem,4.6vw,4rem)/1 'Space Grotesk';color:var(--gold)}
+.results span{color:var(--mute)}
+.bigq{font:500 clamp(1.6rem,3.4vw,2.8rem)/1.25 'Space Grotesk';letter-spacing:-.015em;max-width:30ch}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px}
+.tagrow span{font-size:15px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid #E2DED3}
+.next{display:block;text-decoration:none;color:#fff;position:relative;height:340px;overflow:hidden;margin-top:clamp(56px,8vw,110px)}
+.next .art{position:absolute;inset:0;transition:transform 1.2s var(--ease)}
+.next:hover .art{transform:scale(1.05)}
+.next .ttl{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(24px,4vw,56px) max(4vw,20px);background:linear-gradient(transparent 30%,rgba(0,0,0,.7))}
+.next h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1;letter-spacing:-.03em}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hero h1 span,.fade,.rv,.fl{opacity:1!important;transform:none!important}
+  .statement .w{opacity:1}
+  .mtrack,.qtrack{flex-wrap:wrap;width:auto}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs><path id="star" d="M12 0C12.9 8 16 11.1 24 12C16 12.9 12.9 16 12 24C11.1 16 8 12.9 0 12C8 11.1 11.1 8 12 0Z"/></defs>
+</svg>
+
+<div class="nav" id="nav">
+<div class="navbar">
+<a class="logo" href="#top" aria-label="Nova Sapiens home">
+<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="#F2B33D"/><circle cx="20.5" cy="3.5" r="1.6" fill="#F2B33D"/></svg>NOVA SAPIENS</a>
+<nav class="links" aria-label="Main">
+<a href="#services" data-sec="services">Services</a>
+<a href="#work" data-sec="work">Work</a>
+<a href="#process" data-sec="process">Process</a>
+<a href="#about" data-sec="about">About</a>
+<a href="#contact" data-sec="contact">Contact</a>
+</nav>
+<a class="btn btn-gold navcta" href="#contact">Start a project</a>
+<button class="menubtn" id="menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<nav class="drawer" id="drawer" aria-label="Mobile">
+<a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a>
+<a href="#contact" class="btn btn-gold" style="margin-top:6px">Start a project</a>
+</nav>
+</div>
+
+<main>
+<section class="hero" id="top">
+<div class="pin">
+<svg class="star-bg" id="starBg" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="#F5F3EE"/></svg>
+<div class="collage" id="collage" aria-hidden="true"></div>
+<div class="wrap inner" id="heroInner">
+<p class="eyebrow fade">Branding · Content · Digital · Corporate Comms · Tech, Sri Lanka</p>
+<h1><span style="animation-delay:.05s">Ideas</span> <span style="animation-delay:.15s">that</span> <span style="animation-delay:.25s">think.</span> <span style="animation-delay:.4s;color:#F2B33D">Brands</span> <span style="animation-delay:.5s;color:#F2B33D">that</span> <span style="animation-delay:.6s;color:#F2B33D">shine.</span></h1>
+<p class="lede fade">A branding, marketing, content, corporate communication and technology studio. Clear strategy, content people stop for, campaigns that are measured and tuned, and the tech that keeps it all running.</p>
+<div class="row fade"><a class="btn btn-gold" href="#work">See our work</a><a class="btn btn-ghost" href="#contact">Talk to us</a></div>
+</div>
+<div class="cue" aria-hidden="true">Scroll<i></i></div>
+</div>
+</section>
+
+<div class="marq" aria-label="Clients and services"><div class="mtrack" id="mtrack"></div></div>
+
+<section class="wrap" aria-label="At a glance">
+<div class="stats rv">
+<div><b data-count="5">0</b><span>Disciplines under one roof</span></div>
+<div><b data-count="5">0</b><span>Platforms managed for one client</span></div>
+<div><b data-count="18">0</b><span>Reels in one campaign series</span></div>
+<div><b data-count="3">0</b><span>Industries: healthcare, motorsport, music</span></div>
+</div>
+</section>
+
+<section class="statement wrap" aria-label="Our approach">
+<p id="scrub">Strategy, creative, media, communication and technology usually live in different agencies. We keep them in one orbit, so every idea, post, ad and press release points the same way.</p>
+</section>
+
+<section class="services" id="services">
+<svg class="rings" id="rings" viewBox="0 0 800 800" aria-hidden="true">
+<circle cx="400" cy="400" r="390" fill="none" stroke="#1C2440" stroke-width="1.5"/><circle cx="400" cy="400" r="290" fill="none" stroke="#1C2440" stroke-width="1.5"/><circle cx="400" cy="400" r="190" fill="none" stroke="#232D4F" stroke-width="1.5"/>
+<g transform="translate(178 588) scale(1.4) translate(-12 -12)"><use href="#star" fill="#F2B33D"/></g></svg>
+<div class="wrap">
+<div class="shead rv">
+<div style="display:flex;flex-direction:column;gap:14px"><p class="eyebrow">What we do</p><h2 class="h2" style="max-width:16ch">Everything a growing brand needs.</h2></div>
+<p class="lede" style="max-width:42ch">Five disciplines, one connected team. The idea, the post, the ad, the press release and the system behind them all point the same way.</p>
+</div>
+<div class="cards" id="cards"></div>
+</div>
+</section>
+
+<section class="work" id="work">
+<div class="wrap intro rv">
+<p class="eyebrow">Selected work</p>
+<h2 class="h2" style="max-width:18ch;margin-top:14px">Healthcare, motorsport, music. Same thinking, different stages.</h2>
+</div>
+<div class="hwrap" id="hwrap"><div class="hpin"><div class="htrack" id="htrack"></div><div class="hprog" aria-hidden="true"><i id="hbar"></i></div></div></div>
+</section>
+
+<section class="gallery" aria-labelledby="gt">
+<div class="wrap">
+<div class="ghead rv">
+<div><p class="eyebrow">The work, up close</p><h2 class="h2" id="gt" style="margin-top:14px">Browse everything.</h2></div>
+<div class="filters" id="filters" role="group" aria-label="Filter work"></div>
+</div>
+<div class="grid" id="grid"></div>
+</div>
+</section>
+
+<section class="process" id="process">
+<div class="wrap">
+<div class="rv"><p class="eyebrow">How we work</p><h2 class="h2" style="max-width:18ch;margin-top:14px">From first idea to measured results.</h2></div>
+<div class="steps" id="steps"><div class="pline" aria-hidden="true"><i id="pbar"></i></div></div>
+</div>
+</section>
+
+<section class="quotes" aria-labelledby="qt">
+<div class="wrap rv" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:36px">
+<div><p class="eyebrow">Kind words</p><h2 class="h2" id="qt" style="margin-top:14px">What clients say.</h2></div>
+<span class="sample">Sample quotes, replace with real ones</span>
+</div>
+<div class="qtrack" id="qtrack"></div>
+</section>
+
+<section class="about" id="about">
+<div class="wrap cols">
+<div class="l rv">
+<p class="eyebrow">About Nova Sapiens</p>
+<h2 class="h2">A small studio with a wide orbit.</h2>
+<p class="lede">Nova means a new star. Sapiens means wise. We put the two together: bright, visible work that is always built on clear thinking.</p>
+<p class="lede">Based in Sri Lanka, we work with clinics, athletes, music brands and growing companies, handling the brand, the content, the campaigns, the paperwork and the tech so our clients can focus on what they do best.</p>
+</div>
+<div class="vals" id="vals"></div>
+</div>
+</section>
+
+<section class="why">
+<div class="wrap"><div class="whybox" id="whybox">
+<h2>Brand, creative, media, communication and tech, all handled by one team.</h2>
+<ul><li>Local insight into Sri Lankan audiences and culture</li><li>Bilingual content in English and Sinhala</li><li>Data-led reviews, not guesswork</li><li>Corporate communication and documentation done properly</li></ul>
+</div></div>
+</section>
+
+<section class="contact" id="contact">
+<div class="wrap">
+<div class="l rv">
+<p class="eyebrow">Contact</p>
+<h2 class="h2">Let’s build something brilliant.</h2>
+<p class="lede">Tell us about your brand and what you want to achieve. We’ll come back with ideas and a clear plan.</p>
+<div class="info"><a href="mailto:hello@novasapiens.lk">hello@novasapiens.lk</a><span>+94 XX XXX XXXX</span><span>Colombo, Sri Lanka</span>
+<small style="font-size:13px;color:#8D96B0">Sample contact details, replace with yours.</small></div>
+</div>
+<form id="form" class="rv" novalidate>
+<div class="f"><label for="fn">Name</label><input id="fn" autocomplete="name" required></div>
+<div class="f"><label for="fe">Email</label><input id="fe" type="email" autocomplete="email" required></div>
+<div class="f"><label for="fc">Company</label><input id="fc" autocomplete="organization"></div>
+<div class="f"><label for="fs">Service</label><select id="fs"><option>Branding &amp; marketing</option><option>Content development</option><option>Digital marketing</option><option>Corporate communication</option><option>Tech solutions</option><option>Not sure yet</option></select></div>
+<div class="f full"><label for="fm">Tell us about your project</label><textarea id="fm" rows="4"></textarea></div>
+<button type="submit" class="btn btn-gold">Send enquiry</button>
+<p class="ok" id="ok" role="status"></p>
+</form>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">
+<a class="logo" href="#top" style="font-size:15px;color:#F5F3EE"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="#F2B33D"/><circle cx="20.5" cy="3.5" r="1.6" fill="#F2B33D"/></svg>NOVA SAPIENS</a>
+<span>© 2026 Nova Sapiens. Branding · Content · Digital · Corporate Comms · Tech.</span>
+<nav aria-label="Social"><a href="#top">Instagram</a><a href="#top">Facebook</a><a href="#top">LinkedIn</a><a href="#top">TikTok</a></nav>
+</div></footer>
+
+<div class="cs" id="cs" role="dialog" aria-modal="true" aria-labelledby="csTitle" hidden></div>
+
+<script>
+{
+/* ---------- original artwork ---------- */
+const S='<use href="#star"/>';
+const A={
+gcar:{vb:'0 0 400 500',l:'Genova carousel cover: Planning a pregnancy? Start here.',s:`<rect width="400" height="500" fill="#0F5E63"/><g fill="none" stroke="#7FC4C0" stroke-width="2"><circle cx="300" cy="140" r="78"/><circle cx="300" cy="140" r="50"/><path d="M300 62c26 34 26 122 0 156M222 140c34-26 122-26 156 0"/><circle cx="300" cy="140" r="10" fill="#7FC4C0"/></g><text x="36" y="58" class="in" font-size="14" fill="#D4F0EE">GENOVA FERTICARE</text><text class="sg" font-size="44" fill="#fff"><tspan x="34" y="318">Planning a</tspan><tspan x="34" y="368">pregnancy?</tspan></text><text x="34" y="414" class="sg" font-size="44" fill="#9BE0D9">Start here.</text><text x="36" y="466" class="in" font-size="16" fill="#D4F0EE">Swipe for 5 simple steps →</text>`},
+gtip:{vb:'0 0 400 500',l:'Genova carousel slide: book a preconception check-up',s:`<rect width="400" height="500" fill="#E6F4F2"/><text x="34" y="120" class="sg" font-size="110" fill="#0F5E63">02</text><text class="sg" font-size="30" fill="#0B3B3E"><tspan x="36" y="196">Book a preconception</tspan><tspan x="36" y="234">check-up</tspan></text><text class="in" font-size="16" fill="#2F6E70" font-weight="500"><tspan x="36" y="282">A short visit can flag anything</tspan><tspan x="36" y="306">worth sorting out early.</tspan></text><g fill="none" stroke="#0F5E63" stroke-width="2.5" stroke-linecap="round"><rect x="236" y="340" width="124" height="120" rx="16"/><path d="M262 340v-14M334 340v-14M236 372h124"/><path d="M270 412l18 18 36-36"/></g>`},
+gmyth:{vb:'0 0 400 500',l:'Genova myth versus reality post about the pill',s:`<rect width="400" height="250" fill="#F5F1E8"/><rect y="250" width="400" height="250" fill="#0F5E63"/><text x="36" y="58" class="in" font-size="14" fill="#B3261E">MYTH</text><text class="sg" font-size="27" fill="#1A1A1A"><tspan x="36" y="108">“The pill ruins your</tspan><tspan x="36" y="142">future fertility.”</tspan></text><g fill="none" stroke="#0F5E63" stroke-width="2"><rect x="292" y="40" width="76" height="130" rx="16"/><g fill="#7FC4C0" stroke="none"><circle cx="314" cy="70" r="7"/><circle cx="346" cy="70" r="7"/><circle cx="314" cy="98" r="7"/><circle cx="346" cy="98" r="7"/><circle cx="314" cy="126" r="7"/><circle cx="346" cy="126" r="7" opacity=".3"/></g></g><text x="36" y="306" class="in" font-size="14" fill="#9BE0D9">REALITY</text><text class="sg" font-size="27" fill="#fff"><tspan x="36" y="356">Fertility usually returns</tspan><tspan x="36" y="390">soon after stopping.</tspan></text><text class="in" font-size="15" fill="#D4F0EE" font-weight="500"><tspan x="36" y="440">Talk to your doctor about</tspan><tspan x="36" y="462">what’s right for you.</tspan></text>`},
+greel:{vb:'0 0 360 760',l:'Genova reel: ask the doctor episode',s:`<rect width="360" height="760" fill="#0B3B3E"/><circle cx="300" cy="120" r="120" fill="#0F5E63"/><circle cx="60" cy="640" r="150" fill="#0F5E63" opacity=".6"/><circle cx="180" cy="390" r="74" fill="#E9C8A8"/><path d="M118 362c4-60 120-66 126 0c-12-24-110-26-126 0z" fill="#2B1D16"/><path d="M60 760c0-130 54-210 120-210s120 80 120 210z" fill="#fff"/><path d="M150 556l30 70 30-70" fill="#9BE0D9"/><path d="M140 600c0 40 10 60 20 74" stroke="#0F5E63" stroke-width="5" fill="none"/><circle cx="162" cy="680" r="10" fill="#0F5E63"/><text x="28" y="96" class="in" font-size="15" fill="#9BE0D9">ASK THE DOCTOR · EP. 04</text><text class="sg" font-size="32" fill="#fff"><tspan x="28" y="146">When should</tspan><tspan x="28" y="184">couples see a</tspan><tspan x="28" y="222">fertility doctor?</tspan></text><circle cx="300" cy="470" r="30" fill="rgba(255,255,255,.9)"/><path d="M291 456l24 14-24 14z" fill="#0B3B3E"/>`},
+ggrid:{vb:'0 0 400 500',l:'Genova Instagram grid plan',s:`<rect width="400" height="500" fill="#fff"/><text x="24" y="40" class="in" font-size="14" fill="#0F5E63">@genovaferticare</text>${[0,1,2].map(r=>[0,1,2].map(c=>{const x=24+c*120,y=64+r*140,f=['#0F5E63','#E6F4F2','#9BE0D9','#E6F4F2','#0B3B3E','#0F5E63','#9BE0D9','#0F5E63','#E6F4F2'][r*3+c];return `<rect x="${x}" y="${y}" width="112" height="132" rx="8" fill="${f}"/><circle cx="${x+56}" cy="${y+56}" r="20" fill="none" stroke="${f==='#E6F4F2'||f==='#9BE0D9'?'#0F5E63':'#9BE0D9'}" stroke-width="2"/><rect x="${x+16}" y="${y+96}" width="70" height="8" rx="4" fill="${f==='#E6F4F2'||f==='#9BE0D9'?'#0F5E63':'#fff'}" opacity=".7"/>`}).join('')).join('')}`},
+gads:{vb:'0 0 800 500',l:'Meta campaign dashboard with sample data',s:`<rect width="800" height="500" fill="#F7F8FA"/><rect x="32" y="32" width="736" height="436" rx="20" fill="#fff" stroke="#E3E6EC"/><text x="64" y="84" class="sg" font-size="24" fill="#0B1020">Meta campaign overview</text><text x="64" y="112" class="in" font-size="14" fill="#6B7280">Sample data · last 30 days</text>${[['Reach','412K'],['Engagements','38.6K'],['Page likes','+2,140']].map((k,i)=>`<rect x="${64+i*228}" y="136" width="208" height="86" rx="14" fill="#F2F7F7"/><text x="${84+i*228}" y="166" class="in" font-size="13" fill="#4B5563">${k[0]}</text><text x="${84+i*228}" y="202" class="sg" font-size="28" fill="#0F5E63">${k[1]}</text>`).join('')}${[60,82,74,110,96,140,128,170,150,190,176,210].map((h,i)=>`<rect x="${74+i*56}" y="${436-h}" width="34" height="${h}" rx="6" fill="${i>8?'#0F5E63':'#9BE0D9'}"/>`).join('')}<line x1="64" y1="436" x2="736" y2="436" stroke="#E3E6EC"/>`},
+ahero:{vb:'0 0 800 500',l:'Avishka Premadasa racing brand key visual',s:`<rect width="800" height="500" fill="#0E0E10"/><g fill="#B3261E"><polygon points="380,0 520,0 300,500 160,500"/><polygon points="560,0 610,0 390,500 340,500" opacity=".6"/><polygon points="650,0 680,0 460,500 430,500" opacity=".35"/></g><circle cx="580" cy="270" r="150" fill="#F5F3EE"/><path d="M450 230c30-90 230-100 270-10l-12 60H452z" fill="#B3261E"/><path d="M470 250h230c10 30 4 56-10 70H492c-24-18-28-44-22-70z" fill="#111"/><path d="M500 262h160" stroke="#F2B33D" stroke-width="5" stroke-linecap="round"/><text x="560" y="398" class="sg" font-size="56" fill="#111" text-anchor="middle">27</text><text class="sg" font-size="62" fill="#fff"><tspan x="48" y="140">AVISHKA</tspan><tspan x="48" y="200">PREMADASA</tspan></text><text x="50" y="246" class="in" font-size="18" fill="#F0A49C">Racer · Driver coach · Advocate</text><g fill="#fff">${Array.from({length:8},(_,i)=>`<rect x="${48+i*24}" y="${i%2?432:420}" width="12" height="12"/>`).join('')}</g>`},
+alogo:{vb:'0 0 400 500',l:'AP monogram personal brand mark',s:`<rect width="400" height="500" fill="#0E0E10"/><circle cx="200" cy="220" r="120" fill="none" stroke="#B3261E" stroke-width="6"/><circle cx="200" cy="220" r="96" fill="none" stroke="#3A3A40" stroke-width="2"/><text x="200" y="252" class="sg" font-size="92" fill="#fff" text-anchor="middle">AP</text><g stroke="#B3261E" stroke-width="5" stroke-linecap="round"><path d="M40 210h50M54 234h36M66 258h24"/></g><text x="200" y="400" class="sg" font-size="22" fill="#fff" text-anchor="middle" letter-spacing="6">AVISHKA PREMADASA</text><text x="200" y="430" class="in" font-size="14" fill="#F0A49C" text-anchor="middle">Personal brand mark</text>`},
+asoc:{vb:'0 0 400 500',l:'Race weekend social post',s:`<rect width="400" height="500" fill="#B3261E"/><g fill="#0E0E10">${Array.from({length:20},(_,i)=>`<rect x="${i*20}" y="${i%2?20:0}" width="20" height="20"/>`).join('')}</g><text class="sg" font-size="88" fill="#fff" letter-spacing="-3"><tspan x="28" y="170">RACE</tspan><tspan x="28" y="252">WEEK</tspan><tspan x="28" y="334">END</tspan></text><path d="M260 300l100-60" stroke="#F2B33D" stroke-width="8" stroke-linecap="round"/><text x="30" y="420" class="in" font-size="18" fill="#FFE1DD">Sri Lanka → the world</text><text x="30" y="456" class="in" font-size="14" fill="#FFE1DD" font-weight="500">Follow the build-up all week</text>`},
+areel:{vb:'0 0 360 760',l:'Driver coaching reel on track',s:`<rect width="360" height="760" fill="#17171B"/><polygon points="150,300 210,300 360,760 0,760" fill="#2A2A30"/><g stroke="#fff" stroke-width="6" stroke-dasharray="30 30"><line x1="180" y1="310" x2="180" y2="760"/></g><g fill="#B3261E">${Array.from({length:8},(_,i)=>`<polygon points="${150-i*19},${300+i*58} ${144-i*19},${300+i*58} ${120-i*19-10},${358+i*58} ${126-i*19-10},${358+i*58}"/>`).join('')}</g><rect x="0" y="0" width="360" height="300" fill="#24262E"/><circle cx="270" cy="90" r="40" fill="#F2B33D" opacity=".8"/><text x="28" y="120" class="in" font-size="15" fill="#F0A49C">DRIVER COACHING</text><text class="sg" font-size="34" fill="#fff"><tspan x="28" y="170">Lap one with</tspan><tspan x="28" y="210">a pro coach</tspan></text><circle cx="180" cy="520" r="30" fill="rgba(255,255,255,.9)"/><path d="M171 506l24 14-24 14z" fill="#17171B"/>`},
+wposter:{vb:'0 0 400 500',l:'AWAKAASHA Season 01 poster',s:`<rect width="400" height="500" fill="#1B1B3A"/><g fill="none" stroke="#8E89D6">${[40,80,120,160,200,240].map((r,i)=>`<circle cx="200" cy="230" r="${r}" opacity="${1-i*.14}" stroke-width="1.5"/>`).join('')}</g><g transform="translate(286 88) scale(1.4)" fill="#F2B33D">${S}</g><text x="200" y="250" class="si" font-size="70" fill="#fff" text-anchor="middle">අවකාශ</text><text x="200" y="300" class="sg" font-size="20" fill="#D9D6FF" text-anchor="middle" letter-spacing="10">AWAKAASHA</text><rect x="120" y="400" width="160" height="40" rx="20" fill="#F2B33D"/><text x="200" y="426" class="sg" font-size="16" fill="#1B1B3A" text-anchor="middle" letter-spacing="3">SEASON 01</text>`},
+wdoc:{vb:'0 0 800 500',l:'Joint venture agreement documents',s:`<rect width="800" height="500" fill="#E4DFF2"/><g transform="rotate(-6 300 260)"><rect x="160" y="60" width="280" height="380" rx="10" fill="#fff"/><rect x="190" y="96" width="160" height="12" rx="6" fill="#1B1B3A"/>${Array.from({length:12},(_,i)=>`<rect x="190" y="${130+i*20}" width="${200+(i%3)*16}" height="7" rx="3.5" fill="#C9C6E6"/>`).join('')}</g><g transform="rotate(5 520 260)"><rect x="380" y="56" width="290" height="390" rx="10" fill="#fff"/><text x="410" y="104" class="sg" font-size="18" fill="#1B1B3A">JOINT VENTURE</text><text x="410" y="128" class="sg" font-size="18" fill="#1B1B3A">AGREEMENT</text>${Array.from({length:10},(_,i)=>`<rect x="410" y="${152+i*20}" width="${210-(i%4)*18}" height="7" rx="3.5" fill="#C9C6E6"/>`).join('')}<circle cx="600" cy="390" r="34" fill="#1B1B3A"/><g transform="translate(588 378)" fill="#F2B33D">${S}</g><path d="M410 400c20-20 40 10 60-8s30 8 50-4" stroke="#1B1B3A" stroke-width="2.5" fill="none"/></g>`},
+wstage:{vb:'0 0 800 500',l:'AWAKAASHA live stage concept',s:`<rect width="800" height="500" fill="#0D0C22"/><g fill="#8E89D6" opacity=".22"><polygon points="200,0 240,0 420,420 60,420"/><polygon points="560,0 600,0 740,420 380,420"/></g><g fill="#F2B33D" opacity=".18"><polygon points="390,0 410,0 560,420 240,420"/></g><rect x="120" y="380" width="560" height="22" fill="#2A2860"/><g fill="#05050F">${Array.from({length:22},(_,i)=>`<circle cx="${20+i*37}" cy="${470-(i%3)*8}" r="${26+(i%4)*4}"/>`).join('')}<rect y="470" width="800" height="30"/></g><text x="400" y="200" class="si" font-size="64" fill="#fff" text-anchor="middle">අවකාශ</text><text x="400" y="250" class="sg" font-size="20" fill="#D9D6FF" text-anchor="middle" letter-spacing="8">SEASON 01 · LIVE</text>`},
+nsite:{vb:'0 0 800 500',l:'Nova Sapiens website on a laptop browser',s:`<rect width="800" height="500" fill="#DCD5C4"/><rect x="80" y="50" width="640" height="400" rx="18" fill="#0B1020"/><rect x="80" y="50" width="640" height="36" rx="18" fill="#141B30"/><circle cx="106" cy="68" r="6" fill="#B3261E"/><circle cx="126" cy="68" r="6" fill="#F2B33D"/><circle cx="146" cy="68" r="6" fill="#5CE1C6"/><rect x="260" y="104" width="280" height="28" rx="14" fill="#141B30" stroke="#26304D"/><text x="120" y="220" class="sg" font-size="44" fill="#fff">Ideas that think.</text><text x="120" y="270" class="sg" font-size="44" fill="#F2B33D">Brands that shine.</text><rect x="120" y="300" width="120" height="34" rx="17" fill="#F2B33D"/><g transform="translate(560 250) scale(5) translate(-12 -12)" fill="#F5F3EE" opacity=".12">${S}</g>`},
+nbrand:{vb:'0 0 400 500',l:'Nova Sapiens brand identity',s:`<rect width="400" height="500" fill="#0B1020"/><g transform="translate(200 200) scale(5) translate(-12 -12)" fill="#F2B33D">${S}</g><circle cx="282" cy="118" r="10" fill="#F2B33D"/><text x="200" y="380" class="sg" font-size="32" fill="#F5F3EE" text-anchor="middle" letter-spacing="2">NOVA SAPIENS</text><g transform="translate(150 410)"><rect width="30" height="30" rx="6" fill="#0B1020" stroke="#26304D"/><rect x="36" width="30" height="30" rx="6" fill="#F2B33D"/><rect x="72" width="30" height="30" rx="6" fill="#F5F3EE"/></g>`}
+};
+const nest=(id,x,y,w,r)=>`<g transform="translate(${x} ${y}) rotate(${r})"><rect x="6" y="10" width="${w}" height="${w*1.25}" rx="14" fill="#000" opacity=".25"/><svg width="${w}" height="${w*1.25}" viewBox="${A[id].vb}" preserveAspectRatio="xMidYMid slice">${A[id].s}</svg></g>`;
+A.gcover={vb:'0 0 800 500',l:'Genova Ferticare campaign posts',s:`<rect width="800" height="500" fill="#0F5E63"/><circle cx="660" cy="80" r="180" fill="#0B3B3E"/><circle cx="120" cy="460" r="160" fill="#13777D"/>${nest('gtip',60,110,210,-8)}${nest('gcar',290,70,230,0)}${nest('gmyth',540,120,210,8)}`};
+const art=id=>{const a=A[id];return `<div class="art"><svg viewBox="${a.vb}" role="img" aria-label="${a.l}" preserveAspectRatio="xMidYMid slice">${a.s}</svg></div>`};
+const phone=id=>`<div class="phone"><div class="scr">${art(id)}</div></div>`;
+
+/* ---------- data ---------- */
+const services=[
+ {c:'gold',n:'01',h:'Branding &amp; Marketing',d:'Who you are, who you’re for and how you win them.',t:'Brand identity &amp; guidelines · Positioning · Personal branding · Research · Campaign planning · Pitches'},
+ {c:'',n:'02',h:'Content Development',d:'Stories and visuals people stop scrolling for.',t:'Carousels · Insight posts · Reels &amp; thumbnails · English &amp; Sinhala copy · Event graphics'},
+ {c:'',n:'03',h:'Digital Marketing',d:'Social media and paid campaigns, tracked and tuned.',t:'Facebook · Instagram · TikTok · X · LinkedIn · Meta ads · TikTok Promote · Performance reviews'},
+ {c:'',n:'04',h:'Corporate Communication',d:'Clear, credible words for clients, partners, staff and media.',t:'Press releases · Company profiles · Annual reports · Official letters · Agreements &amp; MOUs · Stakeholder decks'},
+ {c:'light',n:'05',h:'Tech Solutions',d:'The systems and tools that let a brand launch and scale.',t:'Websites &amp; landing pages · AI content workflows · Dashboards · Automation'}
+];
+const cases={
+ genova:{name:'Genova Ferticare',cover:'greel',coverWide:'gcover',color:'#0F5E63',k:'Healthcare',sub:'Making fertility care easier to understand, one post at a time.',
+  meta:[['Client','Genova Ferticare'],['Industry','Fertility &amp; healthcare'],['Year','2026'],['Timeline','Sep – Nov 2026'],['Services','Content · Social · Paid media']],
+  overview:['Genova Ferticare is a fertility clinic with deep medical expertise and a sensitive subject to talk about. They needed a social presence that felt warm, trustworthy and clear across Facebook, Instagram, TikTok, X and LinkedIn.','We built a content system around education and real doctors, then backed it with paid campaigns we reviewed and tuned every ten days.'],
+  challenge:'Fertility is deeply personal. Couples want facts without fear, and they want to hear from people they can trust. The clinic had the knowledge but no consistent way to share it, and a look that changed from post to post.',
+  pillars:[['Educate','Carousels and insight posts that answer the questions couples actually ask, like when to see a specialist and how to prepare for pregnancy.'],['Humanise','A doctor-led reel series, five doctors on a twice-weekly schedule, so patients meet the team before they ever walk in.'],['Amplify','Meta and TikTok campaigns for reach and followers, with a 10-day review that moved budget to what worked.']],
+  shots:[['gcar','post','Carousel cover: a calm, clear entry into a 5-step preconception guide.'],['gtip','post','Carousel slide: one simple action per slide, set in the brand’s light teal.'],['greel','reel','Reel series: doctor portrait, a real question and a bold title on every thumbnail.'],['gmyth','post','Myth vs. reality: a still-life feel with the myth set in black for legibility.'],['ggrid','post','Grid plan: a colour rhythm so the profile reads as one brand.'],['gads','wide','Campaign dashboard: every 10 days we reviewed results and moved spend.']],
+  results:{sample:true,items:[[1.2,'M','Accounts reached',1],[8400,'','New followers',0],[6.8,'%','Average engagement rate',1],[18,'','Reels produced',0]]},
+  quote:['Nova Sapiens turned our doctors’ knowledge into content patients actually understand and share.','Marketing lead, Genova Ferticare'],
+  tags:['Meta Ads Manager','TikTok Promote','Canva','Gemini','Content calendar','Grid management']},
+ avishka:{name:'Avishka Premadasa',cover:'ahero',coverWide:'ahero',color:'#B3261E',k:'Motorsport',sub:'A racer, a coach and a voice for Sri Lankan motorsport.',
+  meta:[['Client','Avishka Premadasa'],['Industry','Motorsport'],['Year','2026'],['Timeline','Aug 2026 – ongoing'],['Services','Personal branding · Digital strategy']],
+  overview:['Avishka is a racer and driver coach with a bigger mission: to build racing culture in Sri Lanka and take local talent to the global stage.','We shaped a personal brand that holds all three roles together, with a clear story, a distinctive look and a digital roadmap to grow his audience and community.'],
+  challenge:'Most athlete brands only talk about results. Avishka needed one identity that works on the grid, in the coaching seat and in front of sponsors and young drivers, without diluting any of them.',
+  pillars:[['Define the roles','Three clear lanes, racer, coach and advocate, each with its own content style but one shared voice.'],['Tell the bigger story','A narrative about taking Sri Lankan racing talent from local tracks to the world stage.'],['Build the community','Content pillars and ideas that invite fans, young drivers and partners in, not just watch.']],
+  shots:[['ahero','wide','Key visual: bold red speed lines, the race number and the three roles in one frame.'],['alogo','post','Personal mark: an AP monogram with speed lines, made for helmets, merch and avatars.'],['asoc','post','Race weekend post: chequered pattern and huge type for instant recognition.'],['areel','reel','Coaching reel: on-track content that shows the coach, not just the racer.']],
+  results:{sample:true,items:[[4,'','Content pillars defined',0],[45,'%','More profile visits',0],[3200,'','New followers',0],[6,'','Partnership enquiries',0]]},
+  quote:['They saw the whole picture, not just the racing. Now my brand finally sounds like me.','Client, motorsport'],
+  tags:['Brand positioning','Personal branding','Content pillars','Digital roadmap','Community strategy']},
+ awakaasha:{name:'AWAKAASHA',si:'අවකාශ',cover:'wposter',coverWide:'wstage',color:'#1B1B3A',k:'Music &amp; events',sub:'The foundations behind a new music and events brand.',
+  meta:[['Client','AWAKAASHA'],['Industry','Music &amp; events'],['Year','2026'],['Timeline','Aug 2026'],['Services','Corporate comms · Venture structuring · Brand']],
+  overview:['AWAKAASHA brings a record label and an events company together under one new brand. Before Season 01 could launch, the partners needed a clear and fair foundation.','We drafted the agreements that define how the venture works, who owns what, and how Season 01 revenue is managed, aligned with Sri Lankan law.'],
+  challenge:'Three parties, original creative works and shared revenue: without clear terms, a promising partnership can stall. The documents had to protect the music, respect each partner and still be easy to understand.',
+  pillars:[['Map the partnership','A Brand Collaboration and Joint Venture Agreement with a clear three-party structure.'],['Protect the creative work','Creative-rights terms aligned with the Intellectual Property Act No. 36 of 2003.'],['Plan Season 01','A Project Initiative and Revenue Management Agreement, with company terms aligned with the Companies Act No. 7 of 2007.']],
+  shots:[['wposter','post','Season 01 poster concept: the Sinhala name at the centre of expanding sound waves.'],['wdoc','wide','The agreements: formatted, three-party documents ready for signature.'],['wstage','wide','Live concept: how the brand comes to life on stage.']],
+  results:{sample:false,items:[[2,'','Agreements drafted',0],[3,'','Parties aligned',0],[2,'','Sri Lankan Acts applied',0],[1,'','Season ready to launch',0]]},
+  quote:['Clear, careful and fast. We could finally focus on the music.','Partner, AWAKAASHA'],
+  tags:['Joint venture agreement','Revenue management','IP Act No. 36 of 2003','Companies Act No. 7 of 2007','Brand partnership']}
+};
+const order=['genova','avishka','awakaasha'];
+const gallery=[
+ {a:'gcar',t:'Preconception carousel',c:'genova',f:['Content']},
+ {a:'greel',t:'Ask the doctor reels',c:'genova',f:['Content','Digital'],ph:1},
+ {a:'gads',t:'Meta campaign reviews',c:'genova',f:['Digital'],w:1},
+ {a:'gmyth',t:'Myth vs. reality',c:'genova',f:['Content']},
+ {a:'ahero',t:'Racing key visual',c:'avishka',f:['Branding'],w:1},
+ {a:'alogo',t:'AP monogram',c:'avishka',f:['Branding']},
+ {a:'asoc',t:'Race weekend post',c:'avishka',f:['Content','Digital']},
+ {a:'areel',t:'Coaching reel',c:'avishka',f:['Digital'],ph:1},
+ {a:'wdoc',t:'Joint venture agreements',c:'awakaasha',f:['Corporate Comms'],w:1},
+ {a:'wposter',t:'Season 01 poster',c:'awakaasha',f:['Branding']},
+ {a:'nbrand',t:'Nova Sapiens identity',f:['Branding']},
+ {a:'nsite',t:'This website',f:['Tech'],w:1}
+];
+const filters=['All','Branding','Content','Digital','Corporate Comms','Tech'];
+const steps=[['01','Discover','We learn the business, the audience and the competition, and agree on what success looks like.'],['02','Strategise','Positioning, content pillars, channel mix, calendar and budget, written down and signed off.'],['03','Create &amp; launch','Design, copy, reels and campaigns go live on schedule, consistent across every platform.'],['04','Measure &amp; refine','Regular performance reviews show what’s working, and spend and content shift to match.']];
+const quotes=[[cases.genova.quote,'#0F5E63','GF'],[cases.avishka.quote,'#B3261E','AP'],[cases.awakaasha.quote,'#2A2860','AW'],[['Our proposals and company profile finally look as professional as the work we do.','Client, corporate communication'],'#4A5063','CC'],[['Fast, thoughtful, and they actually measure what works.','Client, digital marketing'],'#5A4300','DM']];
+const vals=[['Think first','Every project starts with strategy, not templates.','<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>'],['Craft every detail','From a carousel slide to a contract clause.','<path d="M4 20h4L19 9l-4-4L4 16v4z"/>'],['Measure everything','We review, learn and shift spend to what works.','<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>'],['Speak clearly','Plain words in English and Sinhala.','<path d="M4 5h16v11H8l-4 4z"/>']];
+
+/* ---------- render ---------- */
+const $=id=>document.getElementById(id);
+$('cards').innerHTML=services.map((s,i)=>`<article class="card rv ${s.c}" style="transition-delay:${i*.08}s"><span class="n">${s.n}</span><div><h3>${s.h}</h3><p class="d">${s.d}</p><p class="t">${s.t}</p></div></article>`).join('');
+const mItems=['Genova Ferticare','Branding','Avishka Premadasa','Content','AWAKAASHA','Digital','Corporate Comms','Tech'];
+const mHalf=mItems.map(t=>`<span>${t}<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="#F2B33D"/></svg></span>`).join('');
+$('mtrack').innerHTML=mHalf+mHalf;
+const fl=[['gcar','c1','right:6%;top:12%;width:min(240px,20vw);aspect-ratio:4/5',-6,.6,'.2s'],['greel','c2','right:24%;top:46%;width:min(170px,14vw);aspect-ratio:9/19',4,1.1,'.35s'],['ahero','c3','right:-4%;top:56%;width:min(360px,28vw);aspect-ratio:16/10',-3,.8,'.5s'],['wposter','c4','right:30%;top:6%;width:min(170px,14vw);aspect-ratio:4/5',7,1.3,'.65s'],['gmyth','c5','right:3%;top:-6%;width:min(150px,12vw);aspect-ratio:4/5',10,1.6,'.8s']];
+$('collage').innerHTML=fl.map(f=>`<div class="fl ${f[1]}" data-r="${f[3]}" data-d="${f[4]}" style="${f[2]};rotate:${f[3]}deg;animation-delay:${f[5]}">${art(f[0])}</div>`).join('');
+$('htrack').innerHTML=order.map((id,i)=>{const c=cases[id];return `<article class="case"><div class="cv">${art(c.coverWide)}</div><div class="cb"><p class="k">Case study 0${i+1} · ${c.k}</p><h3>${c.name}</h3><p style="font-size:17px;color:#2A3045">${c.sub}</p><ul>${c.pillars.map(p=>`<li><b>${p[0]}.</b> ${p[1].split('.')[0]}.</li>`).join('')}</ul><div><a class="btn btn-ink" href="#${id}">Read case study <span aria-hidden="true">→</span></a></div></div></article>`}).join('');
+$('filters').innerHTML=filters.map((f,i)=>`<button type="button" aria-pressed="${i===0}" data-f="${f}">${f}</button>`).join('');
+$('grid').innerHTML=gallery.map(g=>{const inner=g.ph?phone(g.a):art(g.a);const cap=`<div class="cap"><b>${g.t}</b><span>${g.c?cases[g.c].name:'Nova Sapiens'}</span></div>`;const cls=`gi rv${g.w?' wide':''}${g.ph?' phonecell':''}`;return g.c?`<a class="${cls}" data-f="${g.f.join('|')}" href="#${g.c}" aria-label="${g.t}, open ${cases[g.c].name} case study">${inner}${cap}</a>`:`<div class="${cls}" data-f="${g.f.join('|')}">${inner}${cap}</div>`}).join('');
+$('steps').insertAdjacentHTML('beforeend',steps.map((s,i)=>`<div class="step rv" style="transition-delay:${i*.12}s"><b>${s[0]}</b><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join(''));
+const qHalf=quotes.map(q=>`<figure class="q" style="margin:0"><p>“${q[0][0]}”</p><figcaption class="who"><span class="av" style="background:${q[1]}">${q[2]}</span>${q[0][1]}</figcaption></figure>`).join('');
+$('qtrack').innerHTML=qHalf+qHalf;
+$('vals').innerHTML=vals.map((v,i)=>`<div class="val rv" style="transition-delay:${i*.08}s"><svg viewBox="0 0 24 24" fill="none" stroke="#5A4300" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${v[2]}</svg><h3>${v[0]}</h3><p>${v[1]}</p></div>`).join('');
+
+const scrub=$('scrub');const goldW=new Set(['one','orbit,']);
+scrub.innerHTML=scrub.textContent.split(' ').map(w=>`<span class="w${goldW.has(w)?' g':''}">${w}</span>`).join(' ');
+const words=[...scrub.querySelectorAll('.w')];
+
+/* ---------- filters ---------- */
+$('filters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ $('filters').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+ const f=b.dataset.f;document.querySelectorAll('.gi').forEach(g=>{g.classList.toggle('hide',f!=='All'&&!g.dataset.f.split('|').includes(f));if(!g.classList.contains('hide'))g.classList.add('in')})});
+
+/* ---------- motion ---------- */
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const nav=$('nav'),starBg=$('starBg'),heroInner=$('heroInner'),rings=$('rings'),work=$('work'),hwrap=$('hwrap'),htrack=$('htrack'),hbar=$('hbar'),pbar=$('pbar'),stepsEl=$('steps'),whybox=$('whybox'),cs=$('cs');
+const fls=[...document.querySelectorAll('.fl')];
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const prog=(el,start,end)=>{const r=el.getBoundingClientRect(),vh=innerHeight;return clamp((vh*start-r.top)/(r.height+vh*(start-end)),0,1)};
+let flat=false,travel=1,lastY=scrollY,mx=0,my=0;
+const layout=()=>{flat=reduce||innerWidth<900;work.classList.toggle('flat',flat);
+ if(!flat){travel=Math.max(1,htrack.scrollWidth-innerWidth);hwrap.style.height=(travel+innerHeight)+'px'}else{hwrap.style.height='auto';htrack.style.transform='none'}};
+const frame=()=>{const y=scrollY,vh=innerHeight;
+ if(!nav.classList.contains('open'))nav.classList.toggle('hide',y>lastY&&y>400);lastY=y;
+ if(!reduce){const hp=clamp(y/(vh*.9),0,1);
+  starBg.style.transform=`rotate(${y*.06}deg) scale(${1+hp*.9})`;
+  heroInner.style.transform=`translateY(${-hp*80}px) scale(${1-hp*.08})`;heroInner.style.opacity=1-hp*1.1;
+  fls.forEach(f=>{const d=+f.dataset.d;f.style.transform=`translate(${mx*d*14}px,${-y*d*.35+my*d*14}px)`});
+  const sp=prog(scrub,.85,.35),lit=Math.round(sp*words.length);words.forEach((w,i)=>w.style.opacity=i<lit?1:.16);
+  rings.style.transform=`rotate(${y*.03}deg)`;
+  const wp=prog(whybox,1,.5);whybox.style.transform=`scale(${.9+wp*.1})`;whybox.style.borderRadius=`${60-wp*24}px`}
+ if(!flat){const r=hwrap.getBoundingClientRect(),p=clamp(-r.top/travel,0,1);htrack.style.transform=`translateX(${-p*travel}px)`;hbar.style.width=(p*100)+'%'}
+ pbar.style.width=(reduce?100:prog(stepsEl,.9,.55)*100)+'%'};
+let ticking=false;const onScroll=()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{frame();ticking=false})}};
+addEventListener('scroll',onScroll,{passive:true});
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;if(scrollY<innerHeight)onScroll()},{passive:true});
+const ro=new ResizeObserver(()=>{layout();frame()});ro.observe(document.body);
+layout();frame();
+
+const fmt=(v,dec)=>dec?v.toFixed(dec):Math.round(v).toLocaleString('en-US');
+const countUp=el=>{const end=+el.dataset.count,dec=+(el.dataset.dec||0),suf=el.dataset.suf||'',t0=performance.now(),dur=1500;
+ if(reduce){el.textContent=fmt(end,dec)+suf;return}
+ const tick=t=>{const k=clamp((t-t0)/dur,0,1),e=1-(1-k)**3;el.textContent=fmt(end*e,dec)+suf;if(k<1)requestAnimationFrame(tick)};requestAnimationFrame(tick)};
+const onSeen=(obs)=>es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-count]').forEach(countUp);if(e.target.dataset.count)countUp(e.target);obs().unobserve(e.target)}});
+let io;io=new IntersectionObserver(onSeen(()=>io),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* active nav link */
+const navLinks=[...document.querySelectorAll('.links a')];
+const secIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('on',a.dataset.sec===e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+['services','work','process','about','contact'].forEach(id=>secIo.observe($(id)));
+
+/* mobile menu */
+const menubtn=$('menubtn');
+const setMenu=o=>{nav.classList.toggle('open',o);menubtn.setAttribute('aria-expanded',o);menubtn.setAttribute('aria-label',o?'Close menu':'Open menu');if(o)nav.classList.remove('hide')};
+menubtn.addEventListener('click',()=>setMenu(!nav.classList.contains('open')));
+$('drawer').addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
+
+/* card tilt */
+if(!reduce&&matchMedia('(hover:hover)').matches){document.querySelectorAll('.card').forEach(c=>{
+ c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(900px) rotateY(${x*6}deg) rotateX(${-y*6}deg) translateY(-4px)`});
+ c.addEventListener('pointerleave',()=>{c.style.transform=''})})}
+
+/* ---------- case study pages ---------- */
+let csIo;
+const renderCase=id=>{const c=cases[id],i=order.indexOf(id),nx=order[(i+1)%order.length],n=cases[nx];
+ cs.innerHTML=`<div class="csbar"><span class="crumb">Nova Sapiens · Case study 0${i+1} of 03</span><button class="close" id="csClose" aria-label="Close case study"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+ <header class="cscover" style="background:${c.color}">${art(c.coverWide)}<div class="ttl"><p style="margin:0 0 10px;font-weight:600;font-size:15px">${c.k}</p><h1 id="csTitle">${c.name}${c.si?` <span class="si" style="font-size:.5em;font-weight:800">${c.si}</span>`:''}</h1><p>${c.sub}</p></div></header>
+ <div class="meta">${c.meta.map(m=>`<div><small>${m[0]}</small><b>${m[1]}</b></div>`).join('')}</div>
+ <section class="csec wrap"><div class="two rv"><h2>Overview</h2><div>${c.overview.map(p=>`<p>${p}</p>`).join('')}</div></div></section>
+ <section class="csec wrap"><div class="two rv"><h2>The challenge</h2><div><p>${c.challenge}</p></div></div></section>
+ <section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">Our approach</p><h2 class="h2" style="margin-top:12px;max-width:20ch">Three moves that made the difference.</h2></div>
+ <div class="pillars">${c.pillars.map((p,k)=>`<div class="pillar rv" style="transition-delay:${k*.1}s"><b>0${k+1}</b><h3>${p[0]}</h3><p>${p[1]}</p></div>`).join('')}</div></section>
+ <section class="csec"><div class="wrap rv" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:24px"><div><p class="eyebrow" style="color:#5A4300">What we made</p><h2 class="h2" style="margin-top:12px">The work.</h2></div><p style="color:#4A5063">Scroll sideways to see more →</p></div>
+ <div class="shots" tabindex="0" aria-label="Project gallery">${c.shots.map(s=>`<figure class="shot ${s[1]}" style="margin:0"><div class="frame">${s[1]==='reel'?phone(s[0]):art(s[0])}</div><figcaption>${s[2]}</figcaption></figure>`).join('')}</div></section>
+ <section class="csec wrap"><div class="results rv"><div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center"><h2 class="h2" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">The results.</h2>${c.results.sample?'<span class="sample">Sample figures, replace with real results</span>':''}</div>
+ <div class="rg">${c.results.items.map(r=>`<div><b data-count="${r[0]}" data-suf="${r[1]}" data-dec="${r[3]}">0</b><span>${r[2]}</span></div>`).join('')}</div></div></section>
+ <section class="csec wrap rv"><svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="${c.color}"/></svg><p class="bigq" style="margin-top:18px">“${c.quote[0]}”</p><p style="margin-top:18px;color:#4A5063;display:flex;flex-wrap:wrap;gap:10px;align-items:center">${c.quote[1]} <span class="sample">Sample quote</span></p></section>
+ <section class="csec wrap rv"><p class="eyebrow" style="color:#5A4300;margin-bottom:16px">Deliverables &amp; tools</p><div class="tagrow">${c.tags.map(t=>`<span>${t}</span>`).join('')}</div></section>
+ <a class="next" href="#${nx}" style="background:${n.color}">${art(n.coverWide)}<div class="ttl"><p style="font-weight:600;margin-bottom:10px">Next case study →</p><h2>${n.name}</h2></div></a>`;
+ $('csClose').addEventListener('click',()=>{location.hash='work'});
+ if(csIo)csIo.disconnect();
+ csIo=new IntersectionObserver(onSeen(()=>csIo),{root:cs,threshold:.15});
+ cs.querySelectorAll('.rv').forEach(el=>csIo.observe(el));
+ if(reduce)cs.querySelectorAll('[data-count]').forEach(countUp);
+};
+let lastFocus=null,closeT;
+const openCase=id=>{clearTimeout(closeT);if(cs.hidden)lastFocus=document.activeElement;renderCase(id);cs.hidden=false;cs.scrollTop=0;document.documentElement.style.overflow='hidden';nav.classList.add('hide');
+ requestAnimationFrame(()=>{cs.classList.add('open');$('csClose').focus({preventScroll:true})})};
+const closeCase=()=>{if(cs.hidden)return;cs.classList.remove('open');document.documentElement.style.overflow='';nav.classList.remove('hide');closeT=setTimeout(()=>{cs.hidden=true;cs.innerHTML=''},450);if(lastFocus)lastFocus.focus({preventScroll:true})};
+const route=()=>{const h=location.hash.slice(1);if(cases[h])openCase(h);else closeCase()};
+addEventListener('hashchange',route);
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!cs.hidden)location.hash='work'});
+route();
+
+/* ---------- form ---------- */
+$('form').addEventListener('submit',e=>{e.preventDefault();
+ const n=$('fn').value.trim(),m=$('fe').value.trim(),ok=$('ok');
+ if(!n||!/^\S+@\S+\.\S+$/.test(m)){ok.textContent='Please add your name and a valid email.';return}
+ ok.textContent=`Thanks, ${n}. This form isn’t connected yet, so please email hello@novasapiens.lk and we’ll reply soon.`});
+}
+</script>
+</body>
+</html>
