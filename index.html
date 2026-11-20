@@ -100,6 +100,13 @@ p{margin:0}a{color:inherit}
 .card .d{color:var(--mute)}.card .t{font-size:14px;color:var(--mute2);margin-top:12px;line-height:1.7}
 .card.gold{background:var(--gold);color:var(--ink);border-color:var(--gold)}.card.gold .n,.card.gold .d{color:var(--ink)}.card.gold .t{color:#2A2410}
 .card.light{background:var(--paper);color:var(--ink);border-color:var(--paper)}.card.light .n{color:var(--ink)}.card.light .d{color:#2A3045}.card.light .t{color:var(--slate)}
+a.card{color:inherit;text-decoration:none;cursor:pointer}
+a.card:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.card .more{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-weight:600;font-size:15px;color:var(--gold)}
+.card.gold .more,.card.light .more{color:var(--ink)}
+.card .more i{font-style:normal;transition:transform .4s var(--ease)}
+a.card:hover .more i,a.card:focus-visible .more i{transform:translateX(6px)}
+.art img{display:block;width:100%;height:100%;object-fit:cover}
 
 .rv{opacity:0;transform:translateY(48px) scale(.98);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -216,7 +223,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 .meta div{background:var(--paper);padding:22px max(2vw,20px)}
 .meta small{display:block;font-size:13px;color:var(--slate);margin-bottom:4px}
 .meta b{font-weight:600}
-.csec{padding:clamp(56px,8vw,110px) 0}
+.csec{padding-block:clamp(56px,8vw,110px)}
 .csec+.csec{padding-top:0}
 .two{display:flex;flex-wrap:wrap;gap:40px}
 .two>h2{flex:1 1 280px;font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1.05;letter-spacing:-.02em}
@@ -239,6 +246,43 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 .bigq{font:500 clamp(1.6rem,3.4vw,2.8rem)/1.25 'Space Grotesk';letter-spacing:-.015em;max-width:30ch}
 .tagrow{display:flex;flex-wrap:wrap;gap:8px}
 .tagrow span{font-size:15px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid #E2DED3}
+/* service pages (share the .cs overlay) */
+.svcover{position:relative;overflow:hidden;color:#fff;padding:clamp(56px,9vw,120px) max(4vw,20px) clamp(40px,6vw,72px);min-height:min(70vh,620px);display:flex;flex-direction:column;justify-content:flex-end}
+.svcover .bg{position:absolute;inset:0}
+.svcover .bg .art{position:absolute;inset:0;animation:zoomout 1.6s var(--ease) forwards}
+.svcover .bg.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,16,32,.15),rgba(11,16,32,.82))}
+.svcover .rg{position:absolute;right:-180px;top:-160px;width:620px;height:620px}
+.svcover>*:not(.bg):not(.rg){position:relative;max-width:900px}
+.svcover .num{font:700 15px 'Space Grotesk';color:var(--gold);letter-spacing:.08em}
+.svcover h1{font-size:clamp(2.6rem,7vw,5.6rem);line-height:.95;letter-spacing:-.04em;margin-top:14px;animation:fadeup 1s .2s var(--ease) both}
+.svcover p{margin-top:16px;font-size:clamp(1.05rem,1.7vw,1.3rem);opacity:.92;max-width:46ch;animation:fadeup 1s .35s var(--ease) both}
+.svcover.gold:not(.hasimg),.svcover.light:not(.hasimg){color:var(--ink)}
+.svcover.gold:not(.hasimg) .num{color:var(--ink)}.svcover.light:not(.hasimg) .num{color:var(--brown)}
+.incl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:16px;margin-top:40px}
+.incl div{background:#fff;border:1px solid #E2DED3;border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:8px}
+.incl h3{font-size:21px;line-height:1.2}.incl p{color:var(--slate)}
+.flow{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:16px;counter-reset:f}
+.flow li{counter-increment:f;border-top:2px solid var(--ink);padding-top:18px;display:flex;flex-direction:column;gap:8px}
+.flow li::before{content:"0" counter(f);font:700 14px Inter;color:var(--brown)}
+.flow h3{font-size:22px}.flow p{color:var(--slate)}
+.forlist{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px}
+.faq{display:flex;flex-direction:column;gap:10px;margin-top:32px;max-width:860px}
+.faq details{background:#fff;border:1px solid #E2DED3;border-radius:20px;padding:0 24px}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;font:600 18px Inter;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 26px Inter;color:var(--brown);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding-bottom:22px;color:#2A3045;max-width:68ch}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:16px;margin-top:32px}
+.rel a{position:relative;display:block;height:260px;border-radius:24px;overflow:hidden;color:#fff;text-decoration:none}
+.rel a .art{position:absolute;inset:0;transition:transform 1.2s var(--ease)}
+.rel a:hover .art{transform:scale(1.05)}
+.rel a span{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;padding:22px;background:linear-gradient(transparent 35%,rgba(0,0,0,.72))}
+.rel a b{font:700 24px 'Space Grotesk'}
+.svcta{background:var(--mid);color:var(--paper);border-radius:36px;padding:clamp(32px,5vw,64px);display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+.svcta h2{max-width:18ch}.svcta p{color:var(--mute);margin-top:12px;max-width:44ch}
+.next.svnext{background:var(--mid2)}
+.next.svnext .rg{position:absolute;right:-120px;top:-140px;width:520px;height:520px}
 .next{display:block;text-decoration:none;color:#fff;position:relative;height:340px;overflow:hidden;margin-top:clamp(56px,8vw,110px)}
 .next .art{position:absolute;inset:0;transition:transform 1.2s var(--ease)}
 .next:hover .art{transform:scale(1.05)}
@@ -428,17 +472,62 @@ nbrand:{vb:'0 0 400 500',l:'Nova Sapiens brand identity',s:`<rect width="400" he
 };
 const nest=(id,x,y,w,r)=>`<g transform="translate(${x} ${y}) rotate(${r})"><rect x="6" y="10" width="${w}" height="${w*1.25}" rx="14" fill="#000" opacity=".25"/><svg width="${w}" height="${w*1.25}" viewBox="${A[id].vb}" preserveAspectRatio="xMidYMid slice">${A[id].s}</svg></g>`;
 A.gcover={vb:'0 0 800 500',l:'Genova Ferticare campaign posts',s:`<rect width="800" height="500" fill="#0F5E63"/><circle cx="660" cy="80" r="180" fill="#0B3B3E"/><circle cx="120" cy="460" r="160" fill="#13777D"/>${nest('gtip',60,110,210,-8)}${nest('gcar',290,70,230,0)}${nest('gmyth',540,120,210,8)}`};
-const art=id=>{const a=A[id];return `<div class="art"><svg viewBox="${a.vb}" role="img" aria-label="${a.l}" preserveAspectRatio="xMidYMid slice">${a.s}</svg></div>`};
+/* Real images: add a file to images/ and list it here (key = artwork id, value = [path, alt text]).
+   Any id listed here shows the photo instead of the SVG artwork. See images/PROMPTS.md for the full list. */
+const IMG={
+};
+const art=id=>{if(IMG[id])return `<div class="art"><img src="${IMG[id][0]}" alt="${IMG[id][1]}" loading="lazy" decoding="async"></div>`;const a=A[id];if(!a)return '';return `<div class="art"><svg viewBox="${a.vb}" role="img" aria-label="${a.l}" preserveAspectRatio="xMidYMid slice">${a.s}</svg></div>`};
 const phone=id=>`<div class="phone"><div class="scr">${art(id)}</div></div>`;
 
 /* ---------- data ---------- */
 const services=[
- {c:'gold',n:'01',h:'Branding &amp; Marketing',d:'Who you are, who you’re for and how you win them.',t:'Brand identity &amp; guidelines · Positioning · Personal branding · Research · Campaign planning · Pitches'},
- {c:'',n:'02',h:'Content Development',d:'Stories and visuals people stop scrolling for.',t:'Carousels · Insight posts · Reels &amp; thumbnails · English &amp; Sinhala copy · Event graphics'},
- {c:'',n:'03',h:'Digital Marketing',d:'Social media and paid campaigns, tracked and tuned.',t:'Facebook · Instagram · TikTok · X · LinkedIn · Meta ads · TikTok Promote · Performance reviews'},
- {c:'',n:'04',h:'Corporate Communication',d:'Clear, credible words for clients, partners, staff and media.',t:'Press releases · Company profiles · Annual reports · Official letters · Agreements &amp; MOUs · Stakeholder decks'},
- {c:'light',n:'05',h:'Tech Solutions',d:'The systems and tools that let a brand launch and scale.',t:'Websites &amp; landing pages · AI content workflows · Dashboards · Automation'}
+ {id:'branding-marketing',opt:'Branding &amp; marketing',bg:'#F2B33D',c:'gold',n:'01',h:'Branding &amp; Marketing',d:'Who you are, who you’re for and how you win them.',t:'Brand identity &amp; guidelines · Positioning · Personal branding · Research · Campaign planning · Pitches',
+  sub:'A brand people recognise, remember and choose, with a plan to take it to market.',
+  meta:[['Best for','New businesses, rebrands, founders &amp; public figures'],['Languages','English &amp; Sinhala'],['You get','Brand book, assets &amp; launch plan'],['Pairs with','Content · Digital']],
+  overview:['A strong brand is more than a logo. It is a clear answer to three questions: who you are, who you are for, and why they should pick you over everyone else.','We start with research and positioning, then build the identity and the voice that carry it, and finish with a marketing plan so the brand actually reaches people. For founders, athletes and professionals we do the same for personal brands.'],
+  incl:[['Research &amp; insight','Audience, competitor and market research, so every decision rests on what people actually think and do.'],['Positioning &amp; strategy','A clear brand promise, audience, key messages and the reasons to believe them.'],['Visual identity','Logo, colour, type, imagery style and the system that holds it all together.'],['Brand guidelines','A practical brand book your team and suppliers can follow without guessing.'],['Personal branding','Profile, story, tone and content pillars for founders, athletes and public figures.'],['Campaign planning &amp; pitches','Launch and campaign plans, budgets, timelines and pitch decks for partners and investors.']],
+  flow:[['Discover','Workshops, interviews and research to understand the business and its people.'],['Define','Positioning, audience and message architecture agreed in writing.'],['Design','Identity routes, refinement and a full set of brand assets.'],['Launch','Guidelines, templates and a go-to-market plan, with support as you roll out.']],
+  who:['You are launching a new business or product','Your brand looks or sounds different on every channel','You are a founder or public figure building a personal brand','You need a pitch or campaign plan that holds together'],
+  faq:[['Do you only design logos?','No. A logo is one part of the work. We cover strategy, identity, voice and the plan to launch it.'],['Can you refresh an existing brand instead of starting over?','Yes. Often the smartest move is to keep what people already recognise and fix what is holding the brand back.'],['Do you work with individuals?','Yes. Personal branding for founders, athletes and professionals is a core part of what we do.']],
+  rel:['avishka','awakaasha']},
+ {id:'content-development',opt:'Content development',bg:'#141B30',c:'',n:'02',h:'Content Development',d:'Stories and visuals people stop scrolling for.',t:'Carousels · Insight posts · Reels &amp; thumbnails · English &amp; Sinhala copy · Event graphics',
+  sub:'Posts, reels and copy in English and Sinhala, built to be read, watched and shared.',
+  meta:[['Best for','Brands that need a steady flow of quality content'],['Languages','English &amp; Sinhala'],['Formats','Carousels · Reels · Statics · Copy'],['Pairs with','Digital marketing']],
+  overview:['Good content earns attention instead of asking for it. We plan content around what your audience wants to know, then design and write it so it is easy to understand at a glance.','Every piece comes from a monthly plan with clear content pillars, so your feed builds a story over time rather than filling slots.'],
+  incl:[['Content strategy &amp; calendar','Pillars, themes and a monthly calendar agreed before anything is made.'],['Carousels &amp; insight posts','Step-by-step explainers, tips and myth-busters that people save and share.'],['Reels &amp; short video','Scripts, shot lists, editing, captions and thumbnails for Reels and TikTok.'],['Copywriting','Captions, headlines and long-form copy in English and Sinhala.'],['Event graphics','Announcements, line-ups, countdowns and on-the-day content for launches and events.'],['Templates','Reusable, on-brand templates so your team can publish quickly between big pieces.']],
+  flow:[['Plan','Monthly content plan built around your goals and audience questions.'],['Create','Copy, design and video produced to your brand guidelines.'],['Review','You review and approve everything before it goes out.'],['Learn','We look at what performed and feed it into next month’s plan.']],
+  who:['Your social pages are quiet or inconsistent','You need content in both English and Sinhala','You have expertise to share but not the time to package it','You are planning an event or launch and need a full content set'],
+  faq:[['Do you write in Sinhala as well as English?','Yes. We write and design in both, and adapt rather than translate, so each version reads naturally.'],['Can you film for us?','We plan and edit short-form video and can arrange filming. Many clients also send raw footage for us to edit.'],['Who approves the content?','You do. Nothing is published without your sign-off.']],
+  rel:['genova','awakaasha']},
+ {id:'digital-marketing',opt:'Digital marketing',bg:'#0F5E63',c:'',n:'03',h:'Digital Marketing',d:'Social media and paid campaigns, tracked and tuned.',t:'Facebook · Instagram · TikTok · X · LinkedIn · Meta ads · TikTok Promote · Performance reviews',
+  sub:'Social media management and paid campaigns that are measured and improved, not just posted.',
+  meta:[['Best for','Brands that want reach, leads or sales from social'],['Platforms','Facebook · Instagram · TikTok · X · LinkedIn'],['Paid media','Meta ads · TikTok Promote'],['Pairs with','Content development']],
+  overview:['Posting is not a strategy. We manage your social channels and paid campaigns with a clear goal for each, whether that is awareness, enquiries or sales.','Campaigns are set up with proper tracking from day one, reviewed regularly and adjusted based on what the numbers show, so your budget goes where it works.'],
+  incl:[['Social media management','Scheduling, publishing and community management across your chosen platforms.'],['Paid campaigns','Meta ads and TikTok Promote, from audience and creative to budget and bidding.'],['Tracking &amp; setup','Pixels, events and UTM links set up so results can be measured properly.'],['Regular performance reviews','Scheduled reviews of every campaign, with changes made based on what is working.'],['Reporting','Clear monthly reports in plain language: what happened, why, and what we will do next.'],['Audience growth','Organic tactics, collaborations and community work to grow a following that engages.']],
+  flow:[['Audit','We review your pages, past campaigns and competitors.'],['Set goals','Agree the objective, audience, budget and how success will be measured.'],['Launch','Campaigns and content go live with tracking in place.'],['Optimise','Regular reviews and changes to creative, audience and budget.']],
+  who:['You are spending on ads but are not sure what is working','You need someone to run your pages day to day','You want more enquiries or sales from social media','You are launching something and need reach fast'],
+  faq:[['Is the ad budget included in your fee?','No. Ad spend is paid directly to the platform, separate from our management fee, so you always see exactly what was spent.'],['Which platforms should we be on?','It depends on your audience. We recommend the few that matter most rather than spreading thin across all of them.'],['How often will we hear from you?','You get a monthly report, plus updates whenever we make a significant change to a campaign.']],
+  rel:['genova','avishka']},
+ {id:'corporate-communication',opt:'Corporate communication',bg:'#141B30',c:'',n:'04',h:'Corporate Communication',d:'Clear, credible words for clients, partners, staff and media.',t:'Press releases · Company profiles · Annual reports · Official letters · Agreements &amp; MOUs · Stakeholder decks',
+  sub:'Clear, professional documents that make your organisation look as credible as it is.',
+  meta:[['Best for','Companies, institutions, ventures &amp; NGOs'],['Languages','English &amp; Sinhala'],['Audiences','Clients · Partners · Staff · Media · Investors'],['Pairs with','Branding · Tech']],
+  overview:['The documents that represent your organisation, from a press release to an annual report, shape how seriously people take you. We write and design them so they are clear, accurate and on-brand.','We also help structure new ventures and partnerships, turning ideas and agreements into clear written documents everyone can sign up to.'],
+  incl:[['Press releases &amp; media','News releases, media kits and statements written the way journalists need them.'],['Company profiles','A polished profile that explains who you are, what you do and why it matters.'],['Annual &amp; impact reports','Writing, structure and design that turn figures into a clear story.'],['Official letters','Formal letters and notices with the right tone for each audience.'],['Agreements &amp; MOUs','Clear drafting and structuring of partnerships and MOUs, ready for legal review.'],['Stakeholder decks','Presentations for boards, partners, investors and staff.']],
+  flow:[['Brief','We gather the facts, audience and purpose of each document.'],['Draft','Structure and writing, with your input at each stage.'],['Design','Layout and design to your brand, for print and screen.'],['Finalise','Review, sign-off and files ready to send or publish.']],
+  who:['You are announcing news to the media or partners','You need a company profile or report that looks professional','You are setting up a new venture or partnership','Your official documents look and sound inconsistent'],
+  faq:[['Do you provide legal advice on agreements?','No. We structure and draft agreements and MOUs clearly, and they should always be reviewed by your legal adviser before signing.'],['Can you handle urgent press releases?','Yes. Tell us your deadline and we will plan around it.'],['Do you design the documents as well as write them?','Yes. You get finished, designed files ready for print or digital use.']],
+  rel:['awakaasha']},
+ {id:'tech-solutions',opt:'Tech solutions',bg:'#F5F3EE',c:'light',n:'05',h:'Tech Solutions',d:'The systems and tools that let a brand launch and scale.',t:'Websites &amp; landing pages · AI content workflows · Dashboards · Automation',
+  sub:'Websites, workflows and tools that save time and help your brand grow.',
+  meta:[['Best for','Brands that need a home online or smoother operations'],['Builds','Websites · Landing pages · Dashboards'],['Also','AI workflows · Automation'],['Pairs with','Branding · Digital']],
+  overview:['Your website is often the first place people check before they contact you. We build fast, mobile-friendly sites and landing pages that look like your brand and are easy to update.','Behind the scenes we set up tools that remove repetitive work: AI-assisted content workflows, simple dashboards to track results, and automations that connect the apps you already use.'],
+  incl:[['Websites','Fast, responsive websites built for phones first, with clear calls to action.'],['Landing pages','Focused pages for campaigns, launches and lead generation, with tracking built in.'],['AI content workflows','Practical AI tools and processes that help your team draft and plan faster, with a human always in charge.'],['Dashboards','Simple dashboards that bring your marketing and business numbers into one view.'],['Automation','Connecting forms, spreadsheets, email and messaging so routine tasks run on their own.'],['Care &amp; support','Updates, fixes and improvements after launch, so the site keeps working.']],
+  flow:[['Scope','Agree what the tool or site needs to do and for whom.'],['Prototype','A working draft you can click through early.'],['Build','Development, content and testing on phones and desktops.'],['Hand over','Launch, training and documentation for your team.']],
+  who:['You do not have a website, or yours is out of date','You need a landing page for a campaign','Your team spends hours on repetitive tasks','You want your numbers in one place'],
+  faq:[['Will we be able to update the website ourselves?','Yes. We build so your team can make everyday changes, and we show you how.'],['Do you host websites?','We can set up hosting and domains for you, in your name, so you always own them.'],['How do you use AI?','As a tool to speed up drafting and planning. People review and approve everything that goes out.']],
+  rel:['avishka']}
 ];
+const svcById=Object.fromEntries(services.map(s=>[s.id,s]));
 const cases={
  genova:{name:'Genova Ferticare',cover:'greel',coverWide:'gcover',color:'#0F5E63',k:'Healthcare',sub:'Making fertility care easier to understand, one post at a time.',
   meta:[['Client','Genova Ferticare'],['Industry','Fertility &amp; healthcare'],['Year','2026'],['Timeline','Sep – Nov 2026'],['Services','Content · Social · Paid media']],
@@ -490,7 +579,7 @@ const vals=[['Think first','Every project starts with strategy, not templates.',
 
 /* ---------- render ---------- */
 const $=id=>document.getElementById(id);
-$('cards').innerHTML=services.map((s,i)=>`<article class="card rv ${s.c}" style="transition-delay:${i*.08}s"><span class="n">${s.n}</span><div><h3>${s.h}</h3><p class="d">${s.d}</p><p class="t">${s.t}</p></div></article>`).join('');
+$('cards').innerHTML=services.map((s,i)=>`<a class="card rv ${s.c}" href="#${s.id}" style="transition-delay:${i*.08}s"><span class="n">${s.n}</span><div><h3>${s.h}</h3><p class="d">${s.d}</p><p class="t">${s.t}</p><span class="more">Explore the service <i aria-hidden="true">→</i></span></div></a>`).join('');
 const mItems=['Genova Ferticare','Branding','Avishka Premadasa','Content','AWAKAASHA','Digital','Corporate Comms','Tech'];
 const mHalf=mItems.map(t=>`<span>${t}<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="#F2B33D"/></svg></span>`).join('');
 $('mtrack').innerHTML=mHalf+mHalf;
@@ -580,19 +669,45 @@ const renderCase=id=>{const c=cases[id],i=order.indexOf(id),nx=order[(i+1)%order
  <section class="csec wrap rv"><svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="${c.color}"/></svg><p class="bigq" style="margin-top:18px">“${c.quote[0]}”</p><p style="margin-top:18px;color:#4A5063;display:flex;flex-wrap:wrap;gap:10px;align-items:center">${c.quote[1]} <span class="sample">Sample quote</span></p></section>
  <section class="csec wrap rv"><p class="eyebrow" style="color:#5A4300;margin-bottom:16px">Deliverables &amp; tools</p><div class="tagrow">${c.tags.map(t=>`<span>${t}</span>`).join('')}</div></section>
  <a class="next" href="#${nx}" style="background:${n.color}">${art(n.coverWide)}<div class="ttl"><p style="font-weight:600;margin-bottom:10px">Next case study →</p><h2>${n.name}</h2></div></a>`;
+ cs.dataset.back='work';
  $('csClose').addEventListener('click',()=>{location.hash='work'});
  if(csIo)csIo.disconnect();
  csIo=new IntersectionObserver(onSeen(()=>csIo),{root:cs,threshold:.15});
  cs.querySelectorAll('.rv').forEach(el=>csIo.observe(el));
  if(reduce)cs.querySelectorAll('[data-count]').forEach(countUp);
 };
+/* ---------- service pages ---------- */
+const ringsSvg=(dark,cls)=>{const st=dark?'rgba(255,255,255,.13)':'rgba(11,16,32,.14)';return `<svg class="${cls}" viewBox="0 0 800 800" aria-hidden="true"><circle cx="400" cy="400" r="390" fill="none" stroke="${st}" stroke-width="1.5"/><circle cx="400" cy="400" r="290" fill="none" stroke="${st}" stroke-width="1.5"/><circle cx="400" cy="400" r="190" fill="none" stroke="${st}" stroke-width="1.5"/><g transform="translate(178 588) scale(1.6) translate(-12 -12)"><use href="#star" fill="${dark?'#F2B33D':'#0B1020'}"/></g></svg>`};
+const renderService=id=>{const s=svcById[id],i=services.indexOf(s),nx=services[(i+1)%services.length],img=IMG['svc-'+id],dark=!s.c;
+ cs.innerHTML=`<div class="csbar"><span class="crumb">Nova Sapiens · Service ${s.n} of 05</span><button class="close" id="csClose" aria-label="Close service page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+ <header class="svcover ${s.c}${img?' hasimg':''}" style="background:${s.bg}">${img?`<div class="bg photo">${art('svc-'+id)}</div>`:ringsSvg(dark,'rg')}<span class="num">SERVICE ${s.n}</span><h1 id="csTitle">${s.h}</h1><p>${s.sub}</p></header>
+ <div class="meta">${s.meta.map(m=>`<div><small>${m[0]}</small><b>${m[1]}</b></div>`).join('')}</div>
+ <section class="csec wrap"><div class="two rv"><h2>Overview</h2><div>${s.overview.map(p=>`<p>${p}</p>`).join('')}</div></div></section>
+ <section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">What’s included</p><h2 class="h2" style="margin-top:12px;max-width:20ch">Everything in this service.</h2></div>
+ <div class="incl">${s.incl.map((x,k)=>`<div class="rv" style="transition-delay:${(k%3)*.08}s"><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join('')}</div></section>
+ <section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">How it works</p><h2 class="h2" style="margin-top:12px">Four clear steps.</h2></div>
+ <ol class="flow">${s.flow.map((x,k)=>`<li class="rv" style="transition-delay:${k*.1}s"><h3>${x[0]}</h3><p>${x[1]}</p></li>`).join('')}</ol></section>
+ <section class="csec wrap"><div class="two rv"><h2>Is this for you?</h2><div><p>This service is a good fit if:</p><ul class="forlist">${s.who.map(w=>`<li>${w}</li>`).join('')}</ul></div></div></section>
+ ${s.rel.length?`<section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">Related work</p><h2 class="h2" style="margin-top:12px">See it in action.</h2></div>
+ <div class="rel">${s.rel.map(k=>`<a class="rv" href="#${k}" style="background:${cases[k].color}">${art(cases[k].coverWide)}<span><small>${cases[k].k}</small><b>${cases[k].name}</b></span></a>`).join('')}</div></section>`:''}
+ <section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">Questions</p><h2 class="h2" style="margin-top:12px">Good to know.</h2></div>
+ <div class="faq rv">${s.faq.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('')}</div></section>
+ <section class="csec wrap"><div class="svcta rv"><div><h2 class="h2" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Start a ${s.h} project.</h2><p>Tell us what you need and we’ll come back with ideas and a clear plan.</p></div><a class="btn btn-gold" href="#contact" id="svcGo">Talk to us</a></div></section>
+ <a class="next svnext" href="#${nx.id}" style="background:${nx.bg};color:${nx.c?'#0B1020':'#fff'}">${ringsSvg(!nx.c,'rg')}<div class="ttl" style="background:none"><p style="font-weight:600;margin-bottom:10px">Next service →</p><h2>${nx.h}</h2></div></a>`;
+ cs.dataset.back='services';
+ $('csClose').addEventListener('click',()=>{location.hash='services'});
+ $('svcGo').addEventListener('click',e=>{e.preventDefault();const fs=$('fs');[...fs.options].forEach(o=>{if(o.innerHTML===s.opt)fs.value=o.value});location.hash='contact';setTimeout(()=>$('contact').scrollIntoView({behavior:reduce?'auto':'smooth'}),60)});
+ if(csIo)csIo.disconnect();
+ csIo=new IntersectionObserver(onSeen(()=>csIo),{root:cs,threshold:.15});
+ cs.querySelectorAll('.rv').forEach(el=>csIo.observe(el));
+};
 let lastFocus=null,closeT;
-const openCase=id=>{clearTimeout(closeT);if(cs.hidden)lastFocus=document.activeElement;renderCase(id);cs.hidden=false;cs.scrollTop=0;document.documentElement.style.overflow='hidden';nav.classList.add('hide');
+const openCase=(id,render=renderCase)=>{clearTimeout(closeT);if(cs.hidden)lastFocus=document.activeElement;render(id);cs.hidden=false;cs.scrollTop=0;document.documentElement.style.overflow='hidden';nav.classList.add('hide');
  requestAnimationFrame(()=>{cs.classList.add('open');$('csClose').focus({preventScroll:true})})};
 const closeCase=()=>{if(cs.hidden)return;cs.classList.remove('open');document.documentElement.style.overflow='';nav.classList.remove('hide');closeT=setTimeout(()=>{cs.hidden=true;cs.innerHTML=''},450);if(lastFocus)lastFocus.focus({preventScroll:true})};
-const route=()=>{const h=location.hash.slice(1);if(cases[h])openCase(h);else closeCase()};
+const route=()=>{const h=location.hash.slice(1);if(cases[h])openCase(h);else if(svcById[h])openCase(h,renderService);else closeCase()};
 addEventListener('hashchange',route);
-addEventListener('keydown',e=>{if(e.key==='Escape'&&!cs.hidden)location.hash='work'});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!cs.hidden)location.hash=cs.dataset.back||'work'});
 route();
 
 /* ---------- form ---------- */

@@ -15,6 +15,11 @@ Key parts of the script:
 - `A` — SVG artwork library (`gcar`, `gtip`, `gmyth`, `greel`, `ggrid`, `gads`, `gcover`, `ahero`, `alogo`, `asoc`, `areel`, `wposter`, `wdoc`, `wstage`, `nsite`, `nbrand`). `art(id)` and `phone(id)` render them.
 - `services`, `cases` (keys `genova`, `avishka`, `awakaasha`), `gallery`, `steps`, `quotes`, `vals` — content data.
 - Case studies are routed on the URL hash (`#genova` etc.) and rendered into `#cs`.
+- Service pages share the same `#cs` overlay: each `services` entry has an `id` used as its hash
+  (`#branding-marketing`, `#content-development`, `#digital-marketing`, `#corporate-communication`, `#tech-solutions`)
+  and detail fields (`sub`, `meta`, `overview`, `incl`, `flow`, `who`, `faq`, `rel`), rendered by `renderService`.
+- `IMG` (just above `art()`) maps an artwork id to `[path, alt]`; listed ids show a photo from `images/` instead of the SVG.
+  Service page covers use ids `svc-<service id>`. Prompts and file names for every slot are in `images/PROMPTS.md`.
 
 ## Brand
 
