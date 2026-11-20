@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nova Sapiens</title>
+<title>Nova Sapiens · Design, marketing &amp; tech venture</title>
+<meta name="description" content="Nova Sapiens is a Sri Lankan design, marketing and technology venture: brand and UI &amp; UX design, marketing and branding, communication, and tech solutions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Sinhala:wght@600;800&display=swap" rel="stylesheet">
 <style>
@@ -105,6 +106,7 @@ p{margin:0}a{color:inherit}
 .rings{position:absolute;right:-260px;top:-200px;width:820px;height:820px;will-change:transform}
 .shead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px;position:relative}
 .cards{display:flex;flex-wrap:wrap;gap:16px;position:relative}
+@media(min-width:760px){.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
 .card{flex:1 1 340px;border-radius:28px;padding:36px;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;background:var(--mid2);border:1px solid var(--line);transition:transform .5s var(--ease),box-shadow .5s}
 .card:hover{box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
 .card .n{font-weight:600;font-size:14px;color:var(--gold)}
@@ -320,7 +322,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 <a class="logo" href="#top" aria-label="Nova Sapiens home">
 <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="#F2B33D"/><circle cx="20.5" cy="3.5" r="1.6" fill="#F2B33D"/></svg>NOVA SAPIENS</a>
 <nav class="links" aria-label="Main">
-<a href="#services" data-sec="services">Services</a>
+<a href="#solutions" data-sec="solutions">Solutions</a>
 <a href="#work" data-sec="work">Work</a>
 <a href="#process" data-sec="process">Process</a>
 <a href="#about" data-sec="about">About</a>
@@ -331,7 +333,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div>
 <nav class="drawer" id="drawer" aria-label="Mobile">
-<a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a>
+<a href="#solutions">Solutions</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a>
 <a href="#contact" class="btn btn-gold" style="margin-top:6px">Start a project</a>
 </nav>
 </div>
@@ -342,20 +344,20 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 <svg class="star-bg" id="starBg" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="#F5F3EE"/></svg>
 <div class="collage" id="collage" aria-hidden="true"></div>
 <div class="wrap inner" id="heroInner">
-<p class="eyebrow fade">Branding · Content · Digital · Corporate Comms · Tech, Sri Lanka</p>
+<p class="eyebrow fade">Design · Marketing · Tech venture, Sri Lanka</p>
 <h1><span style="animation-delay:.05s">Ideas</span> <span style="animation-delay:.15s">that</span> <span style="animation-delay:.25s">think.</span> <span style="animation-delay:.4s;color:#F2B33D">Brands</span> <span style="animation-delay:.5s;color:#F2B33D">that</span> <span style="animation-delay:.6s;color:#F2B33D">shine.</span></h1>
-<p class="lede fade">A branding, marketing, content, corporate communication and technology studio. Clear strategy, content people stop for, campaigns that are measured and tuned, and the tech that keeps it all running.</p>
+<p class="lede fade">A design, marketing and technology venture. We design brands and digital products people love to use, market them with campaigns that are measured and tuned, and build the tech that keeps it all running.</p>
 <div class="row fade"><a class="btn btn-gold" href="#work">See our work</a><a class="btn btn-ghost" href="#contact">Talk to us</a></div>
 </div>
 <div class="cue" aria-hidden="true">Scroll<i></i></div>
 </div>
 </section>
 
-<div class="marq" aria-label="Clients and services"><div class="mtrack" id="mtrack"></div></div>
+<div class="marq" aria-label="Clients and solutions"><div class="mtrack" id="mtrack"></div></div>
 
 <section class="wrap" aria-label="At a glance">
 <div class="stats rv">
-<div><b data-count="5">0</b><span>Disciplines under one roof</span></div>
+<div><b data-count="4">0</b><span>Solutions under one roof: design, marketing, communication, tech</span></div>
 <div><b data-count="5">0</b><span>Platforms managed for one client</span></div>
 <div><b data-count="18">0</b><span>Reels in one campaign series</span></div>
 <div><b data-count="3">0</b><span>Industries: healthcare, motorsport, music</span></div>
@@ -363,17 +365,17 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 </section>
 
 <section class="statement wrap" aria-label="Our approach">
-<p id="scrub">Strategy, creative, media, communication and technology usually live in different agencies. We keep them in one orbit, so every idea, post, ad and press release points the same way.</p>
+<p id="scrub">Design, marketing and technology usually live in three different companies. We keep them in one orbit, so every screen, campaign and system points the same way.</p>
 </section>
 
-<section class="services" id="services">
+<section class="services" id="solutions">
 <svg class="rings" id="rings" viewBox="0 0 800 800" aria-hidden="true">
 <circle cx="400" cy="400" r="390" fill="none" stroke="#1C2440" stroke-width="1.5"/><circle cx="400" cy="400" r="290" fill="none" stroke="#1C2440" stroke-width="1.5"/><circle cx="400" cy="400" r="190" fill="none" stroke="#232D4F" stroke-width="1.5"/>
 <g transform="translate(178 588) scale(1.4) translate(-12 -12)"><use href="#star" fill="#F2B33D"/></g></svg>
 <div class="wrap">
 <div class="shead rv">
-<div style="display:flex;flex-direction:column;gap:14px"><p class="eyebrow">What we do</p><h2 class="h2" style="max-width:16ch">Everything a growing brand needs.</h2></div>
-<p class="lede" style="max-width:42ch">Five disciplines, one connected team. The idea, the post, the ad, the press release and the system behind them all point the same way.</p>
+<div style="display:flex;flex-direction:column;gap:14px"><p class="eyebrow">Solutions</p><h2 class="h2" style="max-width:16ch">Design, marketing and tech, built together.</h2></div>
+<p class="lede" style="max-width:42ch">Four connected solutions from one team. What we design, how we market it, what we say and the tech behind it all point the same way.</p>
 </div>
 <div class="cards" id="cards"></div>
 </div>
@@ -416,9 +418,9 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 <div class="wrap cols">
 <div class="l rv">
 <p class="eyebrow">About Nova Sapiens</p>
-<h2 class="h2">A small studio with a wide orbit.</h2>
+<h2 class="h2">A design, marketing and tech venture.</h2>
 <p class="lede">Nova means a new star. Sapiens means wise. We put the two together: bright, visible work that is always built on clear thinking.</p>
-<p class="lede">Based in Sri Lanka, we work with clinics, athletes, music brands and growing companies, handling the brand, the content, the campaigns, the paperwork and the tech so our clients can focus on what they do best.</p>
+<p class="lede">Based in Sri Lanka, we work with clinics, athletes, music brands and growing companies. Designers, marketers, writers and developers work as one team, so the brand, the product, the campaigns and the tech all move together.</p>
 </div>
 <div class="vals" id="vals"></div>
 </div>
@@ -426,8 +428,8 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 
 <section class="why">
 <div class="wrap"><div class="whybox" id="whybox">
-<h2>Brand, creative, media, communication and tech, all handled by one team.</h2>
-<ul><li>Local insight into Sri Lankan audiences and culture</li><li>Bilingual content in English and Sinhala</li><li>Data-led reviews, not guesswork</li><li>Corporate communication and documentation done properly</li></ul>
+<h2>Design, marketing, communication and tech, all handled by one team.</h2>
+<ul><li>Designers, marketers and developers working as one team</li><li>Local insight into Sri Lankan audiences and culture</li><li>Bilingual content in English and Sinhala</li><li>Data-led reviews, not guesswork</li><li>Corporate and employer communication done properly</li></ul>
 </div></div>
 </section>
 
@@ -444,7 +446,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 <div class="f"><label for="fn">Name</label><input id="fn" autocomplete="name" required></div>
 <div class="f"><label for="fe">Email</label><input id="fe" type="email" autocomplete="email" required></div>
 <div class="f"><label for="fc">Company</label><input id="fc" autocomplete="organization"></div>
-<div class="f"><label for="fs">Service</label><select id="fs"><option>Branding &amp; marketing</option><option>Content development</option><option>Digital marketing</option><option>Corporate communication</option><option>Tech solutions</option><option>Not sure yet</option></select></div>
+<div class="f"><label for="fs">Solution</label><select id="fs"><option>Design</option><option>UI &amp; UX design</option><option>Marketing &amp; branding</option><option>Communication</option><option>Tech solutions</option><option>Not sure yet</option></select></div>
 <div class="f full"><label for="fm">Tell us about your project</label><textarea id="fm" rows="4"></textarea></div>
 <button type="submit" class="btn btn-gold">Send enquiry</button>
 <p class="ok" id="ok" role="status"></p>
@@ -455,7 +457,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 
 <footer><div class="wrap">
 <a class="logo" href="#top" style="font-size:15px;color:#F5F3EE"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="#F2B33D"/><circle cx="20.5" cy="3.5" r="1.6" fill="#F2B33D"/></svg>NOVA SAPIENS</a>
-<span>© 2026 Nova Sapiens. Branding · Content · Digital · Corporate Comms · Tech.</span>
+<span>© 2026 Nova Sapiens. Design · Marketing · Communication · Tech.</span>
 <nav aria-label="Social"><a href="#top">Instagram</a><a href="#top">Facebook</a><a href="#top">LinkedIn</a><a href="#top">TikTok</a></nav>
 </div></footer>
 
@@ -487,10 +489,9 @@ A.gcover={vb:'0 0 800 500',l:'Genova Ferticare campaign posts',s:`<rect width="8
 /* Real images: add a file to images/ and list it here (key = artwork id, value = [path, alt text]).
    Any id listed here shows the photo instead of the SVG artwork. See images/PROMPTS.md for the full list. */
 const IMG={
- 'svc-branding-marketing':['images/svc-branding-marketing.jpg','Brand guidelines book, colour swatches and business cards on a desk'],
- 'svc-content-development':['images/svc-content-development.jpg','Content creator editing a social media carousel at a studio desk'],
- 'svc-digital-marketing':['images/svc-digital-marketing.jpg','Laptop and phone showing social media analytics charts at night'],
- 'svc-corporate-communication':['images/svc-corporate-communication.jpg','Annual report, press kit and signed letter on a boardroom table'],
+ 'svc-design':['images/svc-design.jpg','Designer’s desk with app wireframes on screen, sketches and colour swatches'],
+ 'svc-marketing-branding':['images/svc-marketing-branding.jpg','Laptop and phone showing social media analytics charts at night'],
+ 'svc-communication':['images/svc-communication.jpg','Annual report, press kit and signed letter on a boardroom table'],
  'svc-tech-solutions':['images/svc-tech-solutions.jpg','Website on a laptop and phone with a dashboard on a second screen'],
  nsite:['images/nsite.jpg','Nova Sapiens website on a laptop'],
  nbrand:['images/nbrand.jpg','Nova Sapiens brand identity: business card, letterhead and tote bag'],
@@ -515,56 +516,49 @@ const phone=id=>`<div class="phone"><div class="scr">${art(id)}</div></div>`;
 
 /* ---------- data ---------- */
 const services=[
- {id:'branding-marketing',opt:'Branding &amp; marketing',bg:'#F2B33D',c:'gold',n:'01',h:'Branding &amp; Marketing',d:'Who you are, who you’re for and how you win them.',t:'Brand identity &amp; guidelines · Positioning · Personal branding · Research · Campaign planning · Pitches',
-  sub:'A brand people recognise, remember and choose, with a plan to take it to market.',
-  meta:[['Best for','New businesses, rebrands, founders &amp; public figures'],['Languages','English &amp; Sinhala'],['You get','Brand book, assets &amp; launch plan'],['Pairs with','Content · Digital']],
-  overview:['A strong brand is more than a logo. It is a clear answer to three questions: who you are, who you are for, and why they should pick you over everyone else.','We start with research and positioning, then build the identity and the voice that carry it, and finish with a marketing plan so the brand actually reaches people. For founders, athletes and professionals we do the same for personal brands.'],
-  incl:[['Research &amp; insight','Audience, competitor and market research, so every decision rests on what people actually think and do.'],['Positioning &amp; strategy','A clear brand promise, audience, key messages and the reasons to believe them.'],['Visual identity','Logo, colour, type, imagery style and the system that holds it all together.'],['Brand guidelines','A practical brand book your team and suppliers can follow without guessing.'],['Personal branding','Profile, story, tone and content pillars for founders, athletes and public figures.'],['Campaign planning &amp; pitches','Launch and campaign plans, budgets, timelines and pitch decks for partners and investors.']],
-  flow:[['Discover','Workshops, interviews and research to understand the business and its people.'],['Define','Positioning, audience and message architecture agreed in writing.'],['Design','Identity routes, refinement and a full set of brand assets.'],['Launch','Guidelines, templates and a go-to-market plan, with support as you roll out.']],
-  who:['You are launching a new business or product','Your brand looks or sounds different on every channel','You are a founder or public figure building a personal brand','You need a pitch or campaign plan that holds together'],
-  faq:[['Do you only design logos?','No. A logo is one part of the work. We cover strategy, identity, voice and the plan to launch it.'],['Can you refresh an existing brand instead of starting over?','Yes. Often the smartest move is to keep what people already recognise and fix what is holding the brand back.'],['Do you work with individuals?','Yes. Personal branding for founders, athletes and professionals is a core part of what we do.']],
-  rel:['avishka','awakaasha']},
- {id:'content-development',opt:'Content development',bg:'#141B30',c:'',n:'02',h:'Content Development',d:'Stories and visuals people stop scrolling for.',t:'Carousels · Insight posts · Reels &amp; thumbnails · English &amp; Sinhala copy · Event graphics',
-  sub:'Posts, reels and copy in English and Sinhala, built to be read, watched and shared.',
-  meta:[['Best for','Brands that need a steady flow of quality content'],['Languages','English &amp; Sinhala'],['Formats','Carousels · Reels · Statics · Copy'],['Pairs with','Digital marketing']],
-  overview:['Good content earns attention instead of asking for it. We plan content around what your audience wants to know, then design and write it so it is easy to understand at a glance.','Every piece comes from a monthly plan with clear content pillars, so your feed builds a story over time rather than filling slots.'],
-  incl:[['Content strategy &amp; calendar','Pillars, themes and a monthly calendar agreed before anything is made.'],['Carousels &amp; insight posts','Step-by-step explainers, tips and myth-busters that people save and share.'],['Reels &amp; short video','Scripts, shot lists, editing, captions and thumbnails for Reels and TikTok.'],['Copywriting','Captions, headlines and long-form copy in English and Sinhala.'],['Event graphics','Announcements, line-ups, countdowns and on-the-day content for launches and events.'],['Templates','Reusable, on-brand templates so your team can publish quickly between big pieces.']],
-  flow:[['Plan','Monthly content plan built around your goals and audience questions.'],['Create','Copy, design and video produced to your brand guidelines.'],['Review','You review and approve everything before it goes out.'],['Learn','We look at what performed and feed it into next month’s plan.']],
-  who:['Your social pages are quiet or inconsistent','You need content in both English and Sinhala','You have expertise to share but not the time to package it','You are planning an event or launch and need a full content set'],
-  faq:[['Do you write in Sinhala as well as English?','Yes. We write and design in both, and adapt rather than translate, so each version reads naturally.'],['Can you film for us?','We plan and edit short-form video and can arrange filming. Many clients also send raw footage for us to edit.'],['Who approves the content?','You do. Nothing is published without your sign-off.']],
-  rel:['genova','awakaasha']},
- {id:'digital-marketing',opt:'Digital marketing',bg:'#0F5E63',c:'',n:'03',h:'Digital Marketing',d:'Social media and paid campaigns, tracked and tuned.',t:'Facebook · Instagram · TikTok · X · LinkedIn · Meta ads · TikTok Promote · Performance reviews',
-  sub:'Social media management and paid campaigns that are measured and improved, not just posted.',
-  meta:[['Best for','Brands that want reach, leads or sales from social'],['Platforms','Facebook · Instagram · TikTok · X · LinkedIn'],['Paid media','Meta ads · TikTok Promote'],['Pairs with','Content development']],
-  overview:['Posting is not a strategy. We manage your social channels and paid campaigns with a clear goal for each, whether that is awareness, enquiries or sales.','Campaigns are set up with proper tracking from day one, reviewed regularly and adjusted based on what the numbers show, so your budget goes where it works.'],
-  incl:[['Social media management','Scheduling, publishing and community management across your chosen platforms.'],['Paid campaigns','Meta ads and TikTok Promote, from audience and creative to budget and bidding.'],['Tracking &amp; setup','Pixels, events and UTM links set up so results can be measured properly.'],['Regular performance reviews','Scheduled reviews of every campaign, with changes made based on what is working.'],['Reporting','Clear monthly reports in plain language: what happened, why, and what we will do next.'],['Audience growth','Organic tactics, collaborations and community work to grow a following that engages.']],
-  flow:[['Audit','We review your pages, past campaigns and competitors.'],['Set goals','Agree the objective, audience, budget and how success will be measured.'],['Launch','Campaigns and content go live with tracking in place.'],['Optimise','Regular reviews and changes to creative, audience and budget.']],
-  who:['You are spending on ads but are not sure what is working','You need someone to run your pages day to day','You want more enquiries or sales from social media','You are launching something and need reach fast'],
-  faq:[['Is the ad budget included in your fee?','No. Ad spend is paid directly to the platform, separate from our management fee, so you always see exactly what was spent.'],['Which platforms should we be on?','It depends on your audience. We recommend the few that matter most rather than spreading thin across all of them.'],['How often will we hear from you?','You get a monthly report, plus updates whenever we make a significant change to a campaign.']],
+ {id:'design',opt:'Design',bg:'#F2B33D',c:'gold',n:'01',h:'Design',d:'Brands, screens and stories people love to look at and use.',t:'Brand identity · UI &amp; UX design · Social &amp; video · Print &amp; packaging · Presentations',
+  sub:'Brand identities, digital products and content, designed to look good and work even better.',
+  meta:[['Best for','Brands, startups and teams launching something new'],['Disciplines','Brand · UI &amp; UX · Content · Print'],['You get','Source files, prototypes &amp; brand assets'],['Pairs with','Marketing · Tech']],
+  overview:['Good design is how people decide, in a few seconds, whether to trust you. We design the whole picture: the identity that makes you recognisable, the websites and apps people use, and the content and print that carry your brand into the world.','Our UI &amp; UX work starts with the people who will use the product. We map what they need, test ideas early with clickable prototypes, and hand over developer-ready designs, so what gets built is easy to use as well as good to look at.'],
+  incl:[['Brand identity design','Logo, colour, type, imagery style and a practical brand book your team can follow.'],['UI &amp; UX design','User research, user journeys, wireframes, clickable prototypes and usability testing for websites and apps.'],['Design systems','Reusable components, styles and rules that keep a product consistent as it grows.'],['Social media design','Carousels, insight posts, statics, templates and event graphics.'],['Video &amp; motion','Reels and TikTok editing, thumbnails, short motion graphics and animated logos.'],['Print &amp; collateral','Posters, flyers, banners, brochures, business cards and stationery.'],['Packaging &amp; labels','Packaging and label design that stands out on the shelf and works in production.'],['Presentation design','Pitch decks, company profiles and report layouts that look as good as the work inside.'],['Photography &amp; shoot direction','Product shoots, team portraits and event coverage, planned around your brand.']],
+  flow:[['Discover','We learn about your business, your audience and the people who will use what we design.'],['Explore','Moodboards, sketches and wireframes to agree on direction before polishing anything.'],['Design &amp; test','We refine with your feedback and test interfaces with real users through clickable prototypes.'],['Deliver','Final files, assets and a design system, handed over ready for print, publishing or development.']],
+  who:['You are launching a new brand, product, website or app','Your website or app is confusing or hard to use','Your visuals look different on every channel','You need a steady flow of on-brand content and print'],
+  faq:[['What’s the difference between UI and UX?','UX is how something works and feels to use: the structure, the flow and how easy it is to get things done. UI is how it looks: layout, type, colour and components. We design both together.'],['Do you design apps as well as websites?','Yes. We design web and mobile app interfaces from first wireframes to developer-ready files, and our Tech team can build them for you.'],['Will we own the design files?','Yes. You receive the final source files and assets when the project is complete.']],
+  rel:['avishka','genova']},
+ {id:'marketing-branding',opt:'Marketing &amp; branding',bg:'#141B30',c:'',n:'02',h:'Marketing &amp; Branding',d:'Who you are, who you’re for, and how you reach them.',t:'Brand strategy · Personal branding · Content strategy · Social media · Paid ads · Campaigns · Reporting',
+  sub:'Brand strategy, content and campaigns that build a reputation and bring results you can measure.',
+  meta:[['Best for','Brands that want more reach, leads or sales'],['Platforms','Facebook · Instagram · TikTok · X · LinkedIn'],['Languages','English &amp; Sinhala'],['Pairs with','Design · Communication']],
+  overview:['A strong brand is a clear answer to three questions: who you are, who you are for, and why people should choose you. We start with research and positioning, then turn that into a voice, content and campaigns that reach the right people.','Every campaign has a clear goal and proper tracking from day one. We review results regularly and move effort and budget to what works, so marketing becomes something you can measure, not guess.'],
+  incl:[['Brand strategy','Research, positioning, audience, key messages and brand voice, agreed in writing.'],['Personal branding','Profile, story, tone and content pillars for founders, athletes and public figures.'],['Content strategy','Content pillars, monthly calendars and copywriting in English and Sinhala.'],['Social media management','Publishing and community management across Facebook, Instagram, TikTok, X and LinkedIn.'],['Paid advertising','Meta ads, TikTok Promote and Google Ads, from audience and creative to budget and tracking.'],['Campaign planning','Launch, seasonal and event campaigns with budgets, timelines and clear goals.'],['Influencer &amp; creator partnerships','Finding the right creators, briefing them and keeping collaborations on brand.'],['Performance reporting','Regular campaign reviews and plain-language monthly reports: what happened, why, and what’s next.']],
+  flow:[['Audit','We review your brand, channels, past campaigns and competitors.'],['Strategise','Positioning, audience, content pillars, channel mix and budget, signed off before we start.'],['Launch','Content and campaigns go live on schedule, with tracking in place.'],['Measure &amp; refine','Regular reviews, and content and spend shift to what is working.']],
+  who:['You are launching a new business, product or personal brand','You post often but don’t see results','You are spending on ads but aren’t sure what works','You need content in both English and Sinhala'],
+  faq:[['Is the ad budget included in your fee?','No. Ad spend is paid directly to the platform, separate from our management fee, so you always see exactly what was spent.'],['Which platforms should we be on?','It depends on your audience. We recommend the few that matter most rather than spreading thin across all of them.'],['Do you work with individuals?','Yes. Personal branding for founders, athletes and professionals is a core part of what we do.']],
   rel:['genova','avishka']},
- {id:'corporate-communication',opt:'Corporate communication',bg:'#141B30',c:'',n:'04',h:'Corporate Communication',d:'Clear, credible words for clients, partners, staff and media.',t:'Press releases · Company profiles · Annual reports · Official letters · Agreements &amp; MOUs · Stakeholder decks',
-  sub:'Clear, professional documents that make your organisation look as credible as it is.',
-  meta:[['Best for','Companies, institutions, ventures &amp; NGOs'],['Languages','English &amp; Sinhala'],['Audiences','Clients · Partners · Staff · Media · Investors'],['Pairs with','Branding · Tech']],
-  overview:['The documents that represent your organisation, from a press release to an annual report, shape how seriously people take you. We write and design them so they are clear, accurate and on-brand.','We also help structure new ventures and partnerships, turning ideas and agreements into clear written documents everyone can sign up to.'],
-  incl:[['Press releases &amp; media','News releases, media kits and statements written the way journalists need them.'],['Company profiles','A polished profile that explains who you are, what you do and why it matters.'],['Annual &amp; impact reports','Writing, structure and design that turn figures into a clear story.'],['Official letters','Formal letters and notices with the right tone for each audience.'],['Agreements &amp; MOUs','Clear drafting and structuring of partnerships and MOUs, ready for legal review.'],['Stakeholder decks','Presentations for boards, partners, investors and staff.']],
-  flow:[['Brief','We gather the facts, audience and purpose of each document.'],['Draft','Structure and writing, with your input at each stage.'],['Design','Layout and design to your brand, for print and screen.'],['Finalise','Review, sign-off and files ready to send or publish.']],
-  who:['You are announcing news to the media or partners','You need a company profile or report that looks professional','You are setting up a new venture or partnership','Your official documents look and sound inconsistent'],
-  faq:[['Do you provide legal advice on agreements?','No. We structure and draft agreements and MOUs clearly, and they should always be reviewed by your legal adviser before signing.'],['Can you handle urgent press releases?','Yes. Tell us your deadline and we will plan around it.'],['Do you design the documents as well as write them?','Yes. You get finished, designed files ready for print or digital use.']],
+ {id:'communication',opt:'Communication',bg:'#0F5E63',c:'',n:'03',h:'Communication',d:'Clear, credible words for clients, partners, media and your own people.',t:'Media &amp; PR · Corporate documents · Employer branding · Internal comms · Agreements &amp; MOUs · Speeches',
+  sub:'Corporate, media and employer communication that makes your organisation look as credible as it is, inside and out.',
+  meta:[['Best for','Companies, institutions, ventures &amp; NGOs'],['Audiences','Media · Partners · Investors · Staff · Job seekers'],['Languages','English &amp; Sinhala'],['Pairs with','Design · Marketing']],
+  overview:['How you communicate shapes how seriously people take you, from a press release to a company profile to the way you talk to your own team. We write and design communication that is clear, accurate and on-brand for every audience.','That includes your employer brand: how your organisation is seen as a place to work. We help you show why good people should join and stay, and keep the people already with you informed and proud of where they work.'],
+  incl:[['Media &amp; PR','Press releases, media kits, statements and media lists, written the way journalists need them.'],['Corporate documents','Company profiles, annual and impact reports, and decks for boards, partners and investors.'],['Employer branding','Employer value proposition, careers page and LinkedIn content, job ads and recruitment campaigns.'],['Internal communication','Staff newsletters, announcements, onboarding packs and culture campaigns.'],['Official correspondence','Formal letters, notices and circulars with the right tone for each audience.'],['Agreements &amp; structuring','Clear drafting of MOUs and joint venture documents, ready for legal review.'],['Crisis &amp; reputation','Holding statements and response plans so you are ready before something goes wrong.'],['Speeches &amp; scripts','Speeches, event scripts and MC notes that sound natural when spoken.'],['Translation &amp; localisation','English and Sinhala versions adapted, not just translated, so each reads naturally.']],
+  flow:[['Brief','We gather the facts, the audience and the purpose of each piece.'],['Draft','Structure and writing, with your input at each stage.'],['Design','Layout and design to your brand, for print and screen.'],['Finalise','Review, sign-off and files ready to send, publish or present.']],
+  who:['You are announcing news to the media or partners','You need a company profile or report that looks professional','You are hiring and want to attract the right people','Your team doesn’t hear one clear, consistent message'],
+  faq:[['What is employer branding?','It is how your organisation is seen as a place to work. We define what makes you a good employer and share it through your careers page, LinkedIn, job ads and recruitment campaigns, so the right people want to join and stay.'],['Do you provide legal advice on agreements?','No. We structure and draft agreements and MOUs clearly, and they should always be reviewed by your legal adviser before signing.'],['Can you handle urgent press releases?','Yes. Tell us your deadline and we will plan around it.']],
   rel:['awakaasha']},
- {id:'tech-solutions',opt:'Tech solutions',bg:'#F5F3EE',c:'light',n:'05',h:'Tech Solutions',d:'The systems and tools that let a brand launch and scale.',t:'Websites &amp; landing pages · AI content workflows · Dashboards · Automation',
-  sub:'Websites, workflows and tools that save time and help your brand grow.',
-  meta:[['Best for','Brands that need a home online or smoother operations'],['Builds','Websites · Landing pages · Dashboards'],['Also','AI workflows · Automation'],['Pairs with','Branding · Digital']],
-  overview:['Your website is often the first place people check before they contact you. We build fast, mobile-friendly sites and landing pages that look like your brand and are easy to update.','Behind the scenes we set up tools that remove repetitive work: AI-assisted content workflows, simple dashboards to track results, and automations that connect the apps you already use.'],
-  incl:[['Websites','Fast, responsive websites built for phones first, with clear calls to action.'],['Landing pages','Focused pages for campaigns, launches and lead generation, with tracking built in.'],['AI content workflows','Practical AI tools and processes that help your team draft and plan faster, with a human always in charge.'],['Dashboards','Simple dashboards that bring your marketing and business numbers into one view.'],['Automation','Connecting forms, spreadsheets, email and messaging so routine tasks run on their own.'],['Care &amp; support','Updates, fixes and improvements after launch, so the site keeps working.']],
-  flow:[['Scope','Agree what the tool or site needs to do and for whom.'],['Prototype','A working draft you can click through early.'],['Build','Development, content and testing on phones and desktops.'],['Hand over','Launch, training and documentation for your team.']],
-  who:['You do not have a website, or yours is out of date','You need a landing page for a campaign','Your team spends hours on repetitive tasks','You want your numbers in one place'],
-  faq:[['Will we be able to update the website ourselves?','Yes. We build so your team can make everyday changes, and we show you how.'],['Do you host websites?','We can set up hosting and domains for you, in your name, so you always own them.'],['How do you use AI?','As a tool to speed up drafting and planning. People review and approve everything that goes out.']],
+ {id:'tech-solutions',opt:'Tech solutions',bg:'#F5F3EE',c:'light',n:'04',h:'Tech Solutions',d:'The websites, tools and systems that let a brand launch and scale.',t:'Websites · Landing pages · E-commerce · AI workflows · Automation · Dashboards · SEO',
+  sub:'Websites, online stores, workflows and tools that save time and help your business grow.',
+  meta:[['Best for','Brands that need a home online or smoother operations'],['Builds','Websites · Landing pages · Online stores'],['Also','AI workflows · Automation · Dashboards'],['Pairs with','Design · Marketing']],
+  overview:['Your website is often the first place people check before they contact you. We build fast, mobile-first websites, landing pages and online stores that look like your brand and are easy to update.','Behind the scenes we set up tools that remove repetitive work: AI-assisted content workflows, dashboards that bring your numbers into one view, and automations that connect the apps you already use.'],
+  incl:[['Websites','Fast, responsive websites built for phones first, with clear calls to action.'],['Landing pages','Focused pages for campaigns, launches and lead generation, with tracking built in.'],['E-commerce','Online stores with product catalogues and payment setup.'],['AI content workflows','Practical AI tools and processes that help your team plan and draft faster, with people approving everything.'],['Automation','Connecting forms, spreadsheets, email and messaging so routine tasks run on their own.'],['Dashboards','Marketing and business numbers brought together in one simple view.'],['Domains, hosting &amp; email','Domains, hosting and business email set up in your name, so you always own them.'],['SEO &amp; Google Business Profile','The basics done right so people can find you on Google and Maps.'],['Care &amp; support','Updates, fixes and improvements after launch, so everything keeps working.']],
+  flow:[['Scope','Agree what the site or tool needs to do and for whom.'],['Prototype','A working draft you can click through early.'],['Build','Development, content and testing on phones and desktops.'],['Hand over','Launch, training and documentation for your team.']],
+  who:['You don’t have a website, or yours is out of date','You want to sell online','Your team spends hours on repetitive tasks','You want your numbers in one place'],
+  faq:[['Will we be able to update the website ourselves?','Yes. We build so your team can make everyday changes, and we show you how.'],['Can you build what your Design team designs?','Yes. Design and Tech work as one team, so interfaces go from prototype to a working product without anything lost in between.'],['How do you use AI?','As a tool to speed up planning and drafting. People review and approve everything that goes out.']],
   rel:['avishka']}
 ];
+/* old service links (#branding-marketing etc.) still open the matching solution */
+const oldSvc={'branding-marketing':'marketing-branding','content-development':'design','digital-marketing':'marketing-branding','corporate-communication':'communication',services:'solutions'};
 const svcById=Object.fromEntries(services.map(s=>[s.id,s]));
 const cases={
  genova:{name:'Genova Ferticare',cover:'greel',coverWide:'gcover',color:'#0F5E63',k:'Healthcare',sub:'Making fertility care easier to understand, one post at a time.',
-  meta:[['Client','Genova Ferticare'],['Industry','Fertility &amp; healthcare'],['Year','2026'],['Timeline','Sep – Nov 2026'],['Services','Content · Social · Paid media']],
+  meta:[['Client','Genova Ferticare'],['Industry','Fertility &amp; healthcare'],['Year','2026'],['Timeline','Sep – Nov 2026'],['Solutions','Design · Marketing (content, social, paid media)']],
   overview:['Genova Ferticare is a fertility clinic with deep medical expertise and a sensitive subject to talk about. They needed a social presence that felt warm, trustworthy and clear across Facebook, Instagram, TikTok, X and LinkedIn.','We built a content system around education and real doctors, then backed it with paid campaigns we reviewed and tuned every ten days.'],
   challenge:'Fertility is deeply personal. Couples want facts without fear, and they want to hear from people they can trust. The clinic had the knowledge but no consistent way to share it, and a look that changed from post to post.',
   pillars:[['Educate','Carousels and insight posts that answer the questions couples actually ask, like when to see a specialist and how to prepare for pregnancy.'],['Humanise','A doctor-led reel series, five doctors on a twice-weekly schedule, so patients meet the team before they ever walk in.'],['Amplify','Meta and TikTok campaigns for reach and followers, with a 10-day review that moved budget to what worked.']],
@@ -573,7 +567,7 @@ const cases={
   quote:['Nova Sapiens turned our doctors’ knowledge into content patients actually understand and share.','Marketing lead, Genova Ferticare'],
   tags:['Meta Ads Manager','TikTok Promote','Canva','Gemini','Content calendar','Grid management']},
  avishka:{name:'Avishka Premadasa',cover:'ahero',coverWide:'ahero',color:'#B3261E',k:'Motorsport',sub:'A racer, a coach and a voice for Sri Lankan motorsport.',
-  meta:[['Client','Avishka Premadasa'],['Industry','Motorsport'],['Year','2026'],['Timeline','Aug 2026 – ongoing'],['Services','Personal branding · Digital strategy']],
+  meta:[['Client','Avishka Premadasa'],['Industry','Motorsport'],['Year','2026'],['Timeline','Aug 2026 – ongoing'],['Solutions','Marketing &amp; branding (personal brand, digital strategy) · Design']],
   overview:['Avishka is a racer and driver coach with a bigger mission: to build racing culture in Sri Lanka and take local talent to the global stage.','We shaped a personal brand that holds all three roles together, with a clear story, a distinctive look and a digital roadmap to grow his audience and community.'],
   challenge:'Most athlete brands only talk about results. Avishka needed one identity that works on the grid, in the coaching seat and in front of sponsors and young drivers, without diluting any of them.',
   pillars:[['Define the roles','Three clear lanes, racer, coach and advocate, each with its own content style but one shared voice.'],['Tell the bigger story','A narrative about taking Sri Lankan racing talent from local tracks to the world stage.'],['Build the community','Content pillars and ideas that invite fans, young drivers and partners in, not just watch.']],
@@ -582,7 +576,7 @@ const cases={
   quote:['They saw the whole picture, not just the racing. Now my brand finally sounds like me.','Client, motorsport'],
   tags:['Brand positioning','Personal branding','Content pillars','Digital roadmap','Community strategy']},
  awakaasha:{name:'AWAKAASHA',si:'අවකාශ',cover:'wposter',coverWide:'wstage',color:'#1B1B3A',k:'Music &amp; events',sub:'The foundations behind a new music and events brand.',
-  meta:[['Client','AWAKAASHA'],['Industry','Music &amp; events'],['Year','2026'],['Timeline','Aug 2026'],['Services','Corporate comms · Venture structuring · Brand']],
+  meta:[['Client','AWAKAASHA'],['Industry','Music &amp; events'],['Year','2026'],['Timeline','Aug 2026'],['Solutions','Communication (corporate, venture structuring) · Design']],
   overview:['AWAKAASHA brings a record label and an events company together under one new brand. Before Season 01 could launch, the partners needed a clear and fair foundation.','We drafted the agreements that define how the venture works, who owns what, and how Season 01 revenue is managed, aligned with Sri Lankan law.'],
   challenge:'Three parties, original creative works and shared revenue: without clear terms, a promising partnership can stall. The documents had to protect the music, respect each partner and still be easy to understand.',
   pillars:[['Map the partnership','A Brand Collaboration and Joint Venture Agreement with a clear three-party structure.'],['Protect the creative work','Creative-rights terms aligned with the Intellectual Property Act No. 36 of 2003.'],['Plan Season 01','A Project Initiative and Revenue Management Agreement, with company terms aligned with the Companies Act No. 7 of 2007.']],
@@ -593,28 +587,28 @@ const cases={
 };
 const order=['genova','avishka','awakaasha'];
 const gallery=[
- {a:'gcar',t:'Preconception carousel',c:'genova',f:['Content']},
- {a:'greel',t:'Ask the doctor reels',c:'genova',f:['Content','Digital'],ph:1},
- {a:'gads',t:'Meta campaign reviews',c:'genova',f:['Digital'],w:1},
- {a:'gmyth',t:'Myth vs. reality',c:'genova',f:['Content']},
- {a:'ahero',t:'Racing key visual',c:'avishka',f:['Branding'],w:1},
- {a:'alogo',t:'AP monogram',c:'avishka',f:['Branding']},
- {a:'asoc',t:'Race weekend post',c:'avishka',f:['Content','Digital']},
- {a:'areel',t:'Coaching reel',c:'avishka',f:['Digital'],ph:1},
- {a:'wdoc',t:'Joint venture agreements',c:'awakaasha',f:['Corporate Comms'],w:1},
- {a:'wposter',t:'Season 01 poster',c:'awakaasha',f:['Branding']},
- {a:'nbrand',t:'Nova Sapiens identity',f:['Branding']},
- {a:'nsite',t:'This website',f:['Tech'],w:1}
+ {a:'gcar',t:'Preconception carousel',c:'genova',f:['Design','Marketing']},
+ {a:'greel',t:'Ask the doctor reels',c:'genova',f:['Design','Marketing'],ph:1},
+ {a:'gads',t:'Meta campaign reviews',c:'genova',f:['Marketing'],w:1},
+ {a:'gmyth',t:'Myth vs. reality',c:'genova',f:['Design','Marketing']},
+ {a:'ahero',t:'Racing key visual',c:'avishka',f:['Design','Marketing'],w:1},
+ {a:'alogo',t:'AP monogram',c:'avishka',f:['Design']},
+ {a:'asoc',t:'Race weekend post',c:'avishka',f:['Design','Marketing']},
+ {a:'areel',t:'Coaching reel',c:'avishka',f:['Marketing'],ph:1},
+ {a:'wdoc',t:'Joint venture agreements',c:'awakaasha',f:['Communication'],w:1},
+ {a:'wposter',t:'Season 01 poster',c:'awakaasha',f:['Design']},
+ {a:'nbrand',t:'Nova Sapiens identity',f:['Design']},
+ {a:'nsite',t:'This website',f:['Design','Tech'],w:1}
 ];
-const filters=['All','Branding','Content','Digital','Corporate Comms','Tech'];
-const steps=[['01','Discover','We learn the business, the audience and the competition, and agree on what success looks like.'],['02','Strategise','Positioning, content pillars, channel mix, calendar and budget, written down and signed off.'],['03','Create &amp; launch','Design, copy, reels and campaigns go live on schedule, consistent across every platform.'],['04','Measure &amp; refine','Regular performance reviews show what’s working, and spend and content shift to match.']];
-const quotes=[[cases.genova.quote,'#0F5E63','GF'],[cases.avishka.quote,'#B3261E','AP'],[cases.awakaasha.quote,'#2A2860','AW'],[['Our proposals and company profile finally look as professional as the work we do.','Client, corporate communication'],'#4A5063','CC'],[['Fast, thoughtful, and they actually measure what works.','Client, digital marketing'],'#5A4300','DM']];
+const filters=['All','Design','Marketing','Communication','Tech'];
+const steps=[['01','Discover','We learn the business, the audience and the competition, and agree on what success looks like.'],['02','Strategise','Positioning, content pillars, channel mix, calendar and budget, written down and signed off.'],['03','Design, build &amp; launch','Designs, content, campaigns and builds go live on schedule, consistent across every platform.'],['04','Measure &amp; refine','Regular performance reviews show what’s working, and spend and content shift to match.']];
+const quotes=[[cases.genova.quote,'#0F5E63','GF'],[cases.avishka.quote,'#B3261E','AP'],[cases.awakaasha.quote,'#2A2860','AW'],[['Our proposals and company profile finally look as professional as the work we do.','Client, communication'],'#4A5063','CC'],[['Fast, thoughtful, and they actually measure what works.','Client, marketing &amp; branding'],'#5A4300','DM']];
 const vals=[['Think first','Every project starts with strategy, not templates.','<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>'],['Craft every detail','From a carousel slide to a contract clause.','<path d="M4 20h4L19 9l-4-4L4 16v4z"/>'],['Measure everything','We review, learn and shift spend to what works.','<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>'],['Speak clearly','Plain words in English and Sinhala.','<path d="M4 5h16v11H8l-4 4z"/>']];
 
 /* ---------- render ---------- */
 const $=id=>document.getElementById(id);
-$('cards').innerHTML=services.map((s,i)=>`<a class="card rv ${s.c}" href="#${s.id}" style="transition-delay:${i*.08}s"><span class="n">${s.n}</span><div><h3>${s.h}</h3><p class="d">${s.d}</p><p class="t">${s.t}</p><span class="more">Explore the service <i aria-hidden="true">→</i></span></div></a>`).join('');
-const mItems=['Genova Ferticare','Branding','Avishka Premadasa','Content','AWAKAASHA','Digital','Corporate Comms','Tech'];
+$('cards').innerHTML=services.map((s,i)=>`<a class="card rv ${s.c}" href="#${s.id}" style="transition-delay:${i*.08}s"><span class="n">${s.n}</span><div><h3>${s.h}</h3><p class="d">${s.d}</p><p class="t">${s.t}</p><span class="more">Explore the solution <i aria-hidden="true">→</i></span></div></a>`).join('');
+const mItems=['Genova Ferticare','Design','Avishka Premadasa','UI &amp; UX','Marketing &amp; Branding','AWAKAASHA','Communication','Tech Solutions'];
 const mHalf=mItems.map(t=>`<span>${t}<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="#F2B33D"/></svg></span>`).join('');
 $('mtrack').innerHTML=mHalf+mHalf;
 const fl=[['gcar','c1','right:6%;top:12%;width:min(240px,20vw);aspect-ratio:4/5',-6,.6,'.2s'],['greel','c2','right:24%;top:46%;width:min(170px,14vw);aspect-ratio:9/19',4,1.1,'.35s'],['ahero','c3','right:-4%;top:56%;width:min(360px,28vw);aspect-ratio:16/10',-3,.8,'.5s'],['wposter','c4','right:30%;top:6%;width:min(170px,14vw);aspect-ratio:4/5',7,1.3,'.65s'],['gmyth','c5','right:3%;top:-6%;width:min(150px,12vw);aspect-ratio:4/5',10,1.6,'.8s']];
@@ -671,9 +665,12 @@ let io;io=new IntersectionObserver(onSeen(()=>io),{threshold:.12,rootMargin:'0px
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
 /* active nav link */
+/* nav highlight: only after a link is clicked; cleared when back at the top */
 const navLinks=[...document.querySelectorAll('.links a')];
-const secIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('on',a.dataset.sec===e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
-['services','work','process','about','contact'].forEach(id=>secIo.observe($(id)));
+const setNav=h=>navLinks.forEach(a=>a.classList.toggle('on',!!h&&a.getAttribute('href')===h));
+document.querySelectorAll('.links a,.drawer a:not(.btn)').forEach(a=>a.addEventListener('click',()=>setNav(a.getAttribute('href'))));
+document.querySelectorAll('.logo,.navcta,.drawer .btn').forEach(a=>a.addEventListener('click',()=>setNav(null)));
+addEventListener('scroll',()=>{if(scrollY<innerHeight*.4)setNav(null)},{passive:true});
 
 /* mobile menu */
 const menubtn=$('menubtn');
@@ -713,23 +710,23 @@ const renderCase=id=>{const c=cases[id],i=order.indexOf(id),nx=order[(i+1)%order
 /* ---------- service pages ---------- */
 const ringsSvg=(dark,cls)=>{const st=dark?'rgba(255,255,255,.13)':'rgba(11,16,32,.14)';return `<svg class="${cls}" viewBox="0 0 800 800" aria-hidden="true"><circle cx="400" cy="400" r="390" fill="none" stroke="${st}" stroke-width="1.5"/><circle cx="400" cy="400" r="290" fill="none" stroke="${st}" stroke-width="1.5"/><circle cx="400" cy="400" r="190" fill="none" stroke="${st}" stroke-width="1.5"/><g transform="translate(178 588) scale(1.6) translate(-12 -12)"><use href="#star" fill="${dark?'#F2B33D':'#0B1020'}"/></g></svg>`};
 const renderService=id=>{const s=svcById[id],i=services.indexOf(s),nx=services[(i+1)%services.length],img=IMG['svc-'+id],dark=!s.c;
- cs.innerHTML=`<div class="csbar"><span class="crumb">Nova Sapiens · Service ${s.n} of 05</span><button class="close" id="csClose" aria-label="Close service page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
- <header class="svcover ${s.c}${img?' hasimg':''}" style="background:${s.bg}">${img?`<div class="bg photo">${art('svc-'+id)}</div>`:ringsSvg(dark,'rg')}<span class="num">SERVICE ${s.n}</span><h1 id="csTitle">${s.h}</h1><p>${s.sub}</p></header>
+ cs.innerHTML=`<div class="csbar"><span class="crumb">Nova Sapiens · Solution ${s.n} of 04</span><button class="close" id="csClose" aria-label="Close solution page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+ <header class="svcover ${s.c}${img?' hasimg':''}" style="background:${s.bg}">${img?`<div class="bg photo">${art('svc-'+id)}</div>`:ringsSvg(dark,'rg')}<span class="num">SOLUTION ${s.n}</span><h1 id="csTitle">${s.h}</h1><p>${s.sub}</p></header>
  <div class="meta">${s.meta.map(m=>`<div><small>${m[0]}</small><b>${m[1]}</b></div>`).join('')}</div>
  <section class="csec wrap"><div class="two rv"><h2>Overview</h2><div>${s.overview.map(p=>`<p>${p}</p>`).join('')}</div></div></section>
- <section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">What’s included</p><h2 class="h2" style="margin-top:12px;max-width:20ch">Everything in this service.</h2></div>
+ <section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">What’s included</p><h2 class="h2" style="margin-top:12px;max-width:20ch">Everything in this solution.</h2></div>
  <div class="incl">${s.incl.map((x,k)=>`<div class="rv" style="transition-delay:${(k%3)*.08}s"><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join('')}</div></section>
  <section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">How it works</p><h2 class="h2" style="margin-top:12px">Four clear steps.</h2></div>
  <ol class="flow">${s.flow.map((x,k)=>`<li class="rv" style="transition-delay:${k*.1}s"><h3>${x[0]}</h3><p>${x[1]}</p></li>`).join('')}</ol></section>
- <section class="csec wrap"><div class="two rv"><h2>Is this for you?</h2><div><p>This service is a good fit if:</p><ul class="forlist">${s.who.map(w=>`<li>${w}</li>`).join('')}</ul></div></div></section>
+ <section class="csec wrap"><div class="two rv"><h2>Is this for you?</h2><div><p>This solution is a good fit if:</p><ul class="forlist">${s.who.map(w=>`<li>${w}</li>`).join('')}</ul></div></div></section>
  ${s.rel.length?`<section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">Related work</p><h2 class="h2" style="margin-top:12px">See it in action.</h2></div>
  <div class="rel">${s.rel.map(k=>`<a class="rv" href="#${k}" style="background:${cases[k].color}">${art(cases[k].coverWide)}<span><small>${cases[k].k}</small><b>${cases[k].name}</b></span></a>`).join('')}</div></section>`:''}
  <section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">Questions</p><h2 class="h2" style="margin-top:12px">Good to know.</h2></div>
  <div class="faq rv">${s.faq.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('')}</div></section>
  <section class="csec wrap"><div class="svcta rv"><div><h2 class="h2" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">Start a ${s.h} project.</h2><p>Tell us what you need and we’ll come back with ideas and a clear plan.</p></div><a class="btn btn-gold" href="#contact" id="svcGo">Talk to us</a></div></section>
- <a class="next svnext" href="#${nx.id}" style="background:${nx.bg};color:${nx.c?'#0B1020':'#fff'}">${ringsSvg(!nx.c,'rg')}<div class="ttl" style="background:none"><p style="font-weight:600;margin-bottom:10px">Next service →</p><h2>${nx.h}</h2></div></a>`;
- cs.dataset.back='services';
- $('csClose').addEventListener('click',()=>{location.hash='services'});
+ <a class="next svnext" href="#${nx.id}" style="background:${nx.bg};color:${nx.c?'#0B1020':'#fff'}">${ringsSvg(!nx.c,'rg')}<div class="ttl" style="background:none"><p style="font-weight:600;margin-bottom:10px">Next solution →</p><h2>${nx.h}</h2></div></a>`;
+ cs.dataset.back='solutions';
+ $('csClose').addEventListener('click',()=>{location.hash='solutions'});
  $('svcGo').addEventListener('click',e=>{e.preventDefault();const fs=$('fs');[...fs.options].forEach(o=>{if(o.innerHTML===s.opt)fs.value=o.value});location.hash='contact';setTimeout(()=>$('contact').scrollIntoView({behavior:reduce?'auto':'smooth'}),60)});
  if(csIo)csIo.disconnect();
  csIo=new IntersectionObserver(onSeen(()=>csIo),{root:cs,threshold:.15});
@@ -737,9 +734,9 @@ const renderService=id=>{const s=svcById[id],i=services.indexOf(s),nx=services[(
 };
 let lastFocus=null,closeT;
 const openCase=(id,render=renderCase)=>{clearTimeout(closeT);if(cs.hidden)lastFocus=document.activeElement;render(id);cs.hidden=false;cs.scrollTop=0;document.documentElement.style.overflow='hidden';nav.classList.add('hide');
- requestAnimationFrame(()=>{cs.classList.add('open');$('csClose').focus({preventScroll:true})})};
+ requestAnimationFrame(()=>{if(cs.hidden||!$('csClose'))return;cs.classList.add('open');$('csClose').focus({preventScroll:true})})};
 const closeCase=()=>{if(cs.hidden)return;cs.classList.remove('open');document.documentElement.style.overflow='';nav.classList.remove('hide');closeT=setTimeout(()=>{cs.hidden=true;cs.innerHTML=''},450);if(lastFocus)lastFocus.focus({preventScroll:true})};
-const route=()=>{const h=location.hash.slice(1);if(cases[h])openCase(h);else if(svcById[h])openCase(h,renderService);else closeCase()};
+const route=()=>{let h=location.hash.slice(1);if(oldSvc[h]){history.replaceState(null,'','#'+oldSvc[h]);h=oldSvc[h];if(h==='solutions')$('solutions').scrollIntoView()}if(cases[h])openCase(h);else if(svcById[h])openCase(h,renderService);else closeCase()};
 addEventListener('hashchange',route);
 addEventListener('keydown',e=>{if(e.key==='Escape'&&!cs.hidden)location.hash=cs.dataset.back||'work'});
 route();

@@ -4,7 +4,8 @@ Guidance for Claude Code when working in this repository.
 
 ## Project
 
-Static portfolio site for Nova Sapiens (Sri Lanka): Branding & Marketing, Content Development, Digital Marketing, Corporate Communication, Tech Solutions. Owner: Ridma. Hosted on GitHub Pages from `main` (root).
+Static portfolio site for Nova Sapiens (Sri Lanka), positioned as a design, marketing and tech venture. Four Solutions:
+Design (incl. UI & UX), Marketing & Branding, Communication (incl. employer branding), Tech Solutions. Owner: Ridma. Hosted on GitHub Pages from `main` (root).
 
 ## Structure
 
@@ -15,9 +16,11 @@ Key parts of the script:
 - `A` — SVG artwork library (`gcar`, `gtip`, `gmyth`, `greel`, `ggrid`, `gads`, `gcover`, `ahero`, `alogo`, `asoc`, `areel`, `wposter`, `wdoc`, `wstage`, `nsite`, `nbrand`). `art(id)` and `phone(id)` render them.
 - `services`, `cases` (keys `genova`, `avishka`, `awakaasha`), `gallery`, `steps`, `quotes`, `vals` — content data.
 - Case studies are routed on the URL hash (`#genova` etc.) and rendered into `#cs`.
-- Service pages share the same `#cs` overlay: each `services` entry has an `id` used as its hash
-  (`#branding-marketing`, `#content-development`, `#digital-marketing`, `#corporate-communication`, `#tech-solutions`)
-  and detail fields (`sub`, `meta`, `overview`, `incl`, `flow`, `who`, `faq`, `rel`), rendered by `renderService`.
+- The "Solutions" section is `#solutions` (CSS class and data array are still named `services`). Solution pages share
+  the `#cs` overlay: each `services` entry has an `id` used as its hash (`#design`, `#marketing-branding`,
+  `#communication`, `#tech-solutions`) and detail fields (`sub`, `meta`, `overview`, `incl`, `flow`, `who`, `faq`, `rel`),
+  rendered by `renderService`. `oldSvc` redirects the old service hashes (and `#services`) to the new ones.
+- Nav links highlight only after being clicked (`setNav`); the highlight clears when the page is scrolled back to the top.
 - `IMG` (just above `art()`) maps an artwork id to `[path, alt]`; listed ids show a photo from `images/` instead of the SVG.
   Service page covers use ids `svc-<service id>`. Prompts and file names for every slot are in `images/PROMPTS.md`.
   A third value of `1` shows a "Concept" badge (used for the AI-made client images). When the real file arrives, replace

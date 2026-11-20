@@ -19,14 +19,13 @@ headlines and Sinhala text yourself in Canva/Figma rather than asking ChatGPT to
 
 ---
 
-## Service pages (done: generated 20 Nov 2026 and live)
+## Solution pages (done: generated 20 Nov 2026 and live)
 
 | File name | Size | Prompt |
 |---|---|---|
-| `images/svc-branding-marketing.jpg` | Landscape 1536×1024 | Editorial flat-lay on a sand-coloured desk: brand guideline book open to a colour palette page, logo sketches, business cards, colour swatches in navy and gold, a pencil and a coffee cup. Soft daylight from the left, shallow depth of field. |
-| `images/svc-content-development.jpg` | Landscape 1536×1024 | A young Sri Lankan content creator at a bright studio desk editing a social media carousel on a large monitor, a phone on a small tripod and a ring light behind, Sinhala and English sticky notes on the wall. Warm, natural, candid. |
-| `images/svc-digital-marketing.jpg` | Landscape 1536×1024 | Close-up of a laptop and a phone showing abstract social media analytics charts and ad performance graphs with gold and teal lines, on a dark navy desk, soft screen glow, nighttime office in Colombo through the window, blurred. |
-| `images/svc-corporate-communication.jpg` | Landscape 1536×1024 | A polished company annual report and press kit on a boardroom table, a fountain pen and a signed letter, a blurred meeting in the background, calm and credible, navy and paper tones with a small gold accent. |
+| `images/svc-design.jpg` | Landscape 1536×1024 | A product designer's desk in a bright studio: a large monitor showing a clean mobile app UI design with wireframes and component layouts, a phone beside it showing the same app screen, paper wireframe sketches, colour swatches and a pencil, soft daylight, shallow depth of field. |
+| `images/svc-marketing-branding.jpg` | Landscape 1536×1024 | Close-up of a laptop and a phone showing abstract social media analytics charts and ad performance graphs with gold and teal lines, on a dark navy desk, soft screen glow, nighttime office in Colombo through the window, blurred. |
+| `images/svc-communication.jpg` | Landscape 1536×1024 | A polished company annual report and press kit on a boardroom table, a fountain pen and a signed letter, a blurred meeting in the background, calm and credible, navy and paper tones with a small gold accent. |
 | `images/svc-tech-solutions.jpg` | Landscape 1536×1024 | A modern website shown on a laptop and phone side by side on a clean paper-coloured desk, abstract dashboard widgets on a second screen, minimal and bright, subtle gold highlights. |
 
 ## Nova Sapiens studio pieces (done: generated 20 Nov 2026 and live)
