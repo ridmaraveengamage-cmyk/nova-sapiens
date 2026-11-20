@@ -250,7 +250,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 .svcover{position:relative;overflow:hidden;color:#fff;padding:clamp(56px,9vw,120px) max(4vw,20px) clamp(40px,6vw,72px);min-height:min(70vh,620px);display:flex;flex-direction:column;justify-content:flex-end}
 .svcover .bg{position:absolute;inset:0}
 .svcover .bg .art{position:absolute;inset:0;animation:zoomout 1.6s var(--ease) forwards}
-.svcover .bg.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,16,32,.15),rgba(11,16,32,.82))}
+.svcover .bg.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,16,32,.3) 0%,rgba(11,16,32,.55) 45%,rgba(11,16,32,.9) 100%)}
 .svcover .rg{position:absolute;right:-180px;top:-160px;width:620px;height:620px}
 .svcover>*:not(.bg):not(.rg){position:relative;max-width:900px}
 .svcover .num{font:700 15px 'Space Grotesk';color:var(--gold);letter-spacing:.08em}
@@ -475,6 +475,13 @@ A.gcover={vb:'0 0 800 500',l:'Genova Ferticare campaign posts',s:`<rect width="8
 /* Real images: add a file to images/ and list it here (key = artwork id, value = [path, alt text]).
    Any id listed here shows the photo instead of the SVG artwork. See images/PROMPTS.md for the full list. */
 const IMG={
+ 'svc-branding-marketing':['images/svc-branding-marketing.jpg','Brand guidelines book, colour swatches and business cards on a desk'],
+ 'svc-content-development':['images/svc-content-development.jpg','Content creator editing a social media carousel at a studio desk'],
+ 'svc-digital-marketing':['images/svc-digital-marketing.jpg','Laptop and phone showing social media analytics charts at night'],
+ 'svc-corporate-communication':['images/svc-corporate-communication.jpg','Annual report, press kit and signed letter on a boardroom table'],
+ 'svc-tech-solutions':['images/svc-tech-solutions.jpg','Website on a laptop and phone with a dashboard on a second screen'],
+ nsite:['images/nsite.jpg','Nova Sapiens website on a laptop'],
+ nbrand:['images/nbrand.jpg','Nova Sapiens brand identity: business card, letterhead and tote bag']
 };
 const art=id=>{if(IMG[id])return `<div class="art"><img src="${IMG[id][0]}" alt="${IMG[id][1]}" loading="lazy" decoding="async"></div>`;const a=A[id];if(!a)return '';return `<div class="art"><svg viewBox="${a.vb}" role="img" aria-label="${a.l}" preserveAspectRatio="xMidYMid slice">${a.s}</svg></div>`};
 const phone=id=>`<div class="phone"><div class="scr">${art(id)}</div></div>`;

@@ -19,7 +19,7 @@ headlines and Sinhala text yourself in Canva/Figma rather than asking ChatGPT to
 
 ---
 
-## Service pages (new, safe to be fully AI-made)
+## Service pages (done: generated 20 Nov 2026 and live)
 
 | File name | Size | Prompt |
 |---|---|---|
@@ -29,7 +29,7 @@ headlines and Sinhala text yourself in Canva/Figma rather than asking ChatGPT to
 | `images/svc-corporate-communication.jpg` | Landscape 1536×1024 | A polished company annual report and press kit on a boardroom table, a fountain pen and a signed letter, a blurred meeting in the background, calm and credible, navy and paper tones with a small gold accent. |
 | `images/svc-tech-solutions.jpg` | Landscape 1536×1024 | A modern website shown on a laptop and phone side by side on a clean paper-coloured desk, abstract dashboard widgets on a second screen, minimal and bright, subtle gold highlights. |
 
-## Nova Sapiens studio pieces (safe to be fully AI-made)
+## Nova Sapiens studio pieces (done: generated 20 Nov 2026 and live)
 
 | File name | Replaces | Size | Prompt |
 |---|---|---|---|
