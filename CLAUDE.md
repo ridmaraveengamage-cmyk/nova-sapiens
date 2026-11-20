@@ -20,6 +20,8 @@ Key parts of the script:
   and detail fields (`sub`, `meta`, `overview`, `incl`, `flow`, `who`, `faq`, `rel`), rendered by `renderService`.
 - `IMG` (just above `art()`) maps an artwork id to `[path, alt]`; listed ids show a photo from `images/` instead of the SVG.
   Service page covers use ids `svc-<service id>`. Prompts and file names for every slot are in `images/PROMPTS.md`.
+  A third value of `1` shows a "Concept" badge (used for the AI-made client images). When the real file arrives, replace
+  the file and drop the `1`; the "Concept visuals" note in a case study disappears once none of its shots are flagged.
 
 ## Brand
 

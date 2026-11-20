@@ -32,6 +32,18 @@ p{margin:0}a{color:inherit}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .sample{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;background:#FFF3D6;color:#5A4300;border-radius:999px;padding:5px 12px;white-space:nowrap}
 .art svg{display:block;width:100%;height:100%}
+.art{position:relative}
+/* photos: portrait posts are 2:3, so give their frames that shape instead of cropping the headline */
+.gi:not(.wide):not(.phonecell) .art:has(>img){aspect-ratio:2/3}
+.shot.post:has(img){width:calc(min(480px,62vh)*2/3)}
+.shot.post .frame:has(img){aspect-ratio:auto;width:100%}
+.fl.c1:has(img),.fl.c4:has(img),.fl.c5:has(img){aspect-ratio:2/3!important}
+/* tall phone screens: show the whole image over a blurred copy of itself */
+.art img.blurbg{display:none}
+.phone .art img.blurbg,.fl.c2 .art img.blurbg{display:block;position:absolute;inset:0;filter:blur(18px) brightness(.7);transform:scale(1.2)}
+.phone .art img:not(.blurbg),.fl.c2 .art img:not(.blurbg){position:relative;object-fit:contain}
+.phone .art,.fl.c2 .art{overflow:hidden}
+.art .concept{position:absolute;top:10px;left:10px;z-index:2;font:600 11px/1 Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;background:rgba(11,16,32,.72);color:#F5F3EE;border-radius:999px;padding:5px 9px;pointer-events:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 
 /* floating nav */
 .nav{position:fixed;top:16px;left:50%;z-index:60;translate:-50% 0;width:min(940px,calc(100% - 24px));transition:transform .5s var(--ease),opacity .4s}
@@ -481,9 +493,24 @@ const IMG={
  'svc-corporate-communication':['images/svc-corporate-communication.jpg','Annual report, press kit and signed letter on a boardroom table'],
  'svc-tech-solutions':['images/svc-tech-solutions.jpg','Website on a laptop and phone with a dashboard on a second screen'],
  nsite:['images/nsite.jpg','Nova Sapiens website on a laptop'],
- nbrand:['images/nbrand.jpg','Nova Sapiens brand identity: business card, letterhead and tote bag']
+ nbrand:['images/nbrand.jpg','Nova Sapiens brand identity: business card, letterhead and tote bag'],
+ /* Client work: AI-generated concept images (third value = show the "Concept" badge). Replace with the real files when available. */
+ gcar:['images/genova/carousel-cover.jpg','Genova carousel cover: Planning a pregnancy? Start here.',1],
+ gtip:['images/genova/tip.jpg','Genova tip post: book a preconception check-up',1],
+ gmyth:['images/genova/myth.jpg','Genova myth versus reality post about the pill',1],
+ greel:['images/genova/reel.jpg','Genova reel cover: Ask the Doctor, episode 01',1],
+ ggrid:['images/genova/grid.jpg','Genova Instagram grid plan on a phone',1],
+ gads:['images/genova/ads.jpg','Ad performance dashboard on a laptop',1],
+ gcover:['images/genova/cover.jpg','Genova Ferticare campaign posts',1],
+ ahero:['images/avishka/hero.jpg','Red and black race car number 27 at speed at dusk',1],
+ alogo:['images/avishka/logo.jpg','AP monogram personal brand mark',1],
+ asoc:['images/avishka/social.jpg','Race weekend social post with a racing helmet',1],
+ areel:['images/avishka/reel.jpg','Driver coaching reel cover in the pit lane',1],
+ wposter:['images/awakaasha/poster.jpg','AWAKAASHA Season 01 poster',1],
+ wdoc:['images/awakaasha/docs.jpg','Joint venture agreement documents with a fountain pen',1],
+ wstage:['images/awakaasha/stage.jpg','AWAKAASHA live stage concept',1]
 };
-const art=id=>{if(IMG[id])return `<div class="art"><img src="${IMG[id][0]}" alt="${IMG[id][1]}" loading="lazy" decoding="async"></div>`;const a=A[id];if(!a)return '';return `<div class="art"><svg viewBox="${a.vb}" role="img" aria-label="${a.l}" preserveAspectRatio="xMidYMid slice">${a.s}</svg></div>`};
+const art=id=>{if(IMG[id])return `<div class="art"><img class="blurbg" src="${IMG[id][0]}" alt="" aria-hidden="true" loading="lazy"><img src="${IMG[id][0]}" alt="${IMG[id][1]}" loading="lazy" decoding="async">${IMG[id][2]?'<span class="concept">Concept</span>':''}</div>`;const a=A[id];if(!a)return '';return `<div class="art"><svg viewBox="${a.vb}" role="img" aria-label="${a.l}" preserveAspectRatio="xMidYMid slice">${a.s}</svg></div>`};
 const phone=id=>`<div class="phone"><div class="scr">${art(id)}</div></div>`;
 
 /* ---------- data ---------- */
@@ -669,7 +696,7 @@ const renderCase=id=>{const c=cases[id],i=order.indexOf(id),nx=order[(i+1)%order
  <section class="csec wrap"><div class="two rv"><h2>The challenge</h2><div><p>${c.challenge}</p></div></div></section>
  <section class="csec wrap"><div class="rv"><p class="eyebrow" style="color:#5A4300">Our approach</p><h2 class="h2" style="margin-top:12px;max-width:20ch">Three moves that made the difference.</h2></div>
  <div class="pillars">${c.pillars.map((p,k)=>`<div class="pillar rv" style="transition-delay:${k*.1}s"><b>0${k+1}</b><h3>${p[0]}</h3><p>${p[1]}</p></div>`).join('')}</div></section>
- <section class="csec"><div class="wrap rv" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:24px"><div><p class="eyebrow" style="color:#5A4300">What we made</p><h2 class="h2" style="margin-top:12px">The work.</h2></div><p style="color:#4A5063">Scroll sideways to see more →</p></div>
+ <section class="csec"><div class="wrap rv" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:24px"><div><p class="eyebrow" style="color:#5A4300">What we made</p><h2 class="h2" style="margin-top:12px">The work.</h2></div><div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">${c.shots.some(s=>IMG[s[0]]&&IMG[s[0]][2])?'<span class="sample">Concept visuals, replace with the delivered work</span>':''}<p style="color:#4A5063">Scroll sideways to see more →</p></div></div>
  <div class="shots" tabindex="0" aria-label="Project gallery">${c.shots.map(s=>`<figure class="shot ${s[1]}" style="margin:0"><div class="frame">${s[1]==='reel'?phone(s[0]):art(s[0])}</div><figcaption>${s[2]}</figcaption></figure>`).join('')}</div></section>
  <section class="csec wrap"><div class="results rv"><div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center"><h2 class="h2" style="font-size:clamp(1.8rem,3.4vw,2.8rem)">The results.</h2>${c.results.sample?'<span class="sample">Sample figures, replace with real results</span>':''}</div>
  <div class="rg">${c.results.items.map(r=>`<div><b data-count="${r[0]}" data-suf="${r[1]}" data-dec="${r[3]}">0</b><span>${r[2]}</span></div>`).join('')}</div></div></section>

@@ -36,7 +36,7 @@ headlines and Sinhala text yourself in Canva/Figma rather than asking ChatGPT to
 | `images/nsite.jpg` | `nsite` | Landscape 1536×1024 | A laptop on a sand-coloured desk showing a dark navy agency website with a large gold four-point star and a bold headline area left blank, minimal props, soft daylight. |
 | `images/nbrand.jpg` | `nbrand` | Portrait 1024×1536 | Brand identity mock-up for a creative studio: a navy business card with a gold four-point star, a paper letterhead and a navy tote bag arranged on a sand background, top-down, soft shadows. |
 
-## Genova Ferticare (fertility clinic, healthcare: use real designs if you have them)
+## Genova Ferticare (AI concept versions live with a "Concept" badge: replace with the real designs)
 
 | File name | Replaces | Size | Prompt |
 |---|---|---|---|
@@ -48,7 +48,7 @@ headlines and Sinhala text yourself in Canva/Figma rather than asking ChatGPT to
 | `images/genova/ads.jpg` | `gads` | Landscape 1536×1024 | Abstract ads-manager style dashboard on a laptop with bar and line charts in teal and gold, no real numbers or brand names, dark navy UI. |
 | `images/genova/cover.jpg` | `gcover` | Landscape 1536×1024 | Three social media posts for a fertility clinic floating at slight angles over a deep teal background, soft shadows, calm and premium. |
 
-## Avishka Premadasa (motorsport personal brand: real race photos are much better)
+## Avishka Premadasa (AI concept versions live with a "Concept" badge: replace with real race photos)
 
 | File name | Replaces | Size | Prompt |
 |---|---|---|---|
@@ -57,7 +57,7 @@ headlines and Sinhala text yourself in Canva/Figma rather than asking ChatGPT to
 | `images/avishka/social.jpg` | `asoc` | Portrait 1024×1536 | Race weekend social post design: a racing helmet in red, black and white on a dark background with diagonal stripes, space for text at the bottom. |
 | `images/avishka/reel.jpg` | `areel` | Portrait 1024×1536 | Vertical video thumbnail of a driving coach in a racing suit talking beside a car in the pit lane, helmet in hand, face not identifiable, golden-hour light. |
 
-## AWAKAASHA අවකාශ (music / live event venture)
+## AWAKAASHA අවකාශ (AI concept versions live with a "Concept" badge: replace with the real work)
 
 | File name | Replaces | Size | Prompt |
 |---|---|---|---|
