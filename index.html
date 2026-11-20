@@ -353,7 +353,7 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 </div>
 </section>
 
-<div class="marq" aria-label="Clients and solutions"><div class="mtrack" id="mtrack"></div></div>
+<div class="marq" aria-label="Solutions: Design, Marketing &amp; Branding, Communication, Tech Solutions"><div class="mtrack" id="mtrack"></div></div>
 
 <section class="wrap" aria-label="At a glance">
 <div class="stats rv">
@@ -608,7 +608,9 @@ const vals=[['Think first','Every project starts with strategy, not templates.',
 /* ---------- render ---------- */
 const $=id=>document.getElementById(id);
 $('cards').innerHTML=services.map((s,i)=>`<a class="card rv ${s.c}" href="#${s.id}" style="transition-delay:${i*.08}s"><span class="n">${s.n}</span><div><h3>${s.h}</h3><p class="d">${s.d}</p><p class="t">${s.t}</p><span class="more">Explore the solution <i aria-hidden="true">→</i></span></div></a>`).join('');
-const mItems=['Genova Ferticare','Design','Avishka Premadasa','UI &amp; UX','Marketing &amp; Branding','AWAKAASHA','Communication','Tech Solutions'];
+/* scrolling strip under the hero: the four Solutions only (repeated so the loop has no gap on wide screens) */
+const mSol=['Design','Marketing &amp; Branding','Communication','Tech Solutions'];
+const mItems=[...mSol,...mSol];
 const mHalf=mItems.map(t=>`<span>${t}<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="#F2B33D"/></svg></span>`).join('');
 $('mtrack').innerHTML=mHalf+mHalf;
 const fl=[['gcar','c1','right:6%;top:12%;width:min(240px,20vw);aspect-ratio:4/5',-6,.6,'.2s'],['greel','c2','right:24%;top:46%;width:min(170px,14vw);aspect-ratio:9/19',4,1.1,'.35s'],['ahero','c3','right:-4%;top:56%;width:min(360px,28vw);aspect-ratio:16/10',-3,.8,'.5s'],['wposter','c4','right:30%;top:6%;width:min(170px,14vw);aspect-ratio:4/5',7,1.3,'.65s'],['gmyth','c5','right:3%;top:-6%;width:min(150px,12vw);aspect-ratio:4/5',10,1.6,'.8s']];
